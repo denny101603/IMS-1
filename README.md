@@ -1,4 +1,5 @@
 # IMS
+* odkaz pro zápis objevených poznatků: https://docs.google.com/document/d/1BZel_zXxoHvnEIaxBDMugz7P92Mx3QtE-5Gqel-FeVg/edit?usp=sharing
 ## Todo
 * Analyzovat současnou (a minulou?) situaci:
     * Poměr zdrojů energie + současná spotřeba + současná výroba
