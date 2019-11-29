@@ -1,0 +1,9 @@
+years:10
+coal:10
+solar:50
+wind:5
+hydro:5
+nuclear:30
+biomass:0
+gas:0
+other:0
