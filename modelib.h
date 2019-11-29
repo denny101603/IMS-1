@@ -33,12 +33,23 @@
 #define INIT_PERCENTAGE_PRODUCE_GAS 0
 #define INIT_PERCENTAGE_PRODUCE_OTHER 0
 
+//every source type has it's own endurance in years before it has to be changed
+#define ENDURANCE_COAL 0
+#define ENDURANCE_NUCLEAR 0
+#define ENDURANCE_WIND 0
+#define ENDURANCE_HYDRO 0
+#define ENDURANCE_BIOMASS 0
+#define ENDURANCE_SOLAR 0
+#define ENDURANCE_GAS 0
+#define ENDURANCE_OTHER 0
+
 
 long Mdays; //days of simulation passed
 long Myears; //years of simulation passed
 long MlimitYears; //number of years after the simulation stops
 
 long long MfinalCF; //final output of carbon footprint
+long long MyearCF; //yearly output of carbon footprint
 double MdailyCF; //daily output of CF
 
 long MfinalPercentageProduceCoal;
@@ -73,7 +84,13 @@ double MgetSourceTypeCFPerUnit(enum MsourceTypes type);
  */
 int MrandomRange(int lower, int upper);
 
-//bool MinitSimulation(long maxYears)
+/**
+ * inits all variables for start of simulation, also reads from config file
+ * @return true on success
+ */
+bool MinitSimulation();
+
+void startSimulation();
 
 
 #endif //IMS_MODELIB_H

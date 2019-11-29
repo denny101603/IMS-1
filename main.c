@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include "modelib.h"
 #include "otherlib.h"
+
+
 
 int main() {
     printf("Hello, World!\n");
@@ -16,12 +17,21 @@ int main() {
         printf("%i\n", pole[j]);
     }
      */
-
+/*
     parseConfiguration(CONF_FILE_NAME);
     printf("%li", MlimitYears);
     printf("%li", MfinalPercentageProduceCoal);
     printf("%li", MfinalPercentageProduceNuclear);
     printf("%li", MfinalPercentageProduceOther);
+    */
+    if(MinitSimulation())
+        messageAndExit();
+
+    startSimulation();
     return 0;
 }
+
+
+
+
 

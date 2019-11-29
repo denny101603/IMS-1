@@ -22,7 +22,7 @@ void parseConfiguration(char *filename)
     fd = fopen(filename, "r");
     if(fd == NULL)
     {
-        printf("%i", errno);
+        err = errFileOpen;
         return; //nepovedlo se otevrit sooubor
     }
     for (int i = 0; i < NUMBER_OF_INPUT_TAGS; i++)
@@ -32,11 +32,13 @@ void parseConfiguration(char *filename)
             if((c = fgetc(fd)) == EOF)
             {
                 fclose(fd);
+                err = errFileFormat;
                 return; //spatny format souboru
             }
             if(c != inputTags[i][j])
             {
                 fclose(fd);
+                err = errFileFormat;
                 return; //spatny format souboru
             }
             if(c == ':') //konec tagu
@@ -44,7 +46,8 @@ void parseConfiguration(char *filename)
                 if((values[i] = parseValue(fd)) == -1)
                 {
                     fclose(fd);
-                    return; //chyba
+                    err = errFileFormat;
+                    return;
                 }
                 break;
             }
@@ -53,7 +56,8 @@ void parseConfiguration(char *filename)
     fclose(fd);
     if(!checkVars(values))
     {
-        return; //chyba
+        err = errFileFormat;
+        return;
     }
     setVarNamesFromConfFile(values);
 }
@@ -115,9 +119,24 @@ long parseValue(FILE *fd)
         else
             value[i] = (char) c;
     }
+    return -1;
 }
 
-
+void messageAndExit() {
+    switch (err)
+    {
+        case errFileFormat:
+            fprintf(stderr, "Config file has wrong format!\n");
+            break;
+        case errFileOpen:
+            fprintf(stderr, "Config file cannot be opened!\n");
+            break;
+        default:
+            fprintf(stderr, "Unspecified error!\n");
+            break;
+    }
+    exit(err);
+}
 
 
 

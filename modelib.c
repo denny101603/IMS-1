@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "modelib.h"
+#include "otherlib.h"
 
 const int MsourceTypesNumber = 8;
 
@@ -49,5 +50,26 @@ double MgetSourceTypeCFPerUnit(enum MsourceTypes type) {
             ret = -1;
             break;
     }
-    return ret/10;
+    return ret/10.0; //the CFs upper are 10x bigger than real ones to easily generate random nums, so it needs to be divided
+}
+
+bool MinitSimulation()
+{
+    err = 0;
+    parseConfiguration(CONF_FILE_NAME);
+    if(err)
+        return false;
+
+    Myears = 0;
+    Mdays = 0;
+    MdailyCF = 0;
+    MyearCF = 0;
+    MfinalCF = 0;
+
+    return true;
+}
+
+void startSimulation()
+{
+    //todo :D
 }

@@ -11,6 +11,7 @@
 #include "modelib.h"
 #include <stdio.h>
 
+int err;
 
 #define NUMBER_OF_INPUT_TAGS 9 //number of tags in config file
 #define TAG_MAX_LEN 32 //maximum length of input tag in file
@@ -37,5 +38,12 @@ long parseValue(FILE *fd);
  * @param values of variables in the right order
  */
 void setVarNamesFromConfFile(const long *values);
+
+enum errors{
+    errFileOpen, errFileFormat
+};
+
+void messageAndExit();
+
 
 #endif //IMS_OTHERLIB_H
