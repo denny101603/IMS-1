@@ -3,9 +3,19 @@
 //
 
 #include <stdlib.h>
+#include <time.h>
 #include "modelib.h"
 
-int randomRange(int lower, int upper) {
+const int MsourceTypesNumber = 8;
+
+
+int MrandomRange(int lower, int upper) {
+    static int init = 1;
+    if(init)
+    {
+        srand(time(0)); //for little bit more realistic random
+        init = 0;
+    }
     return (rand() % (upper - lower + 1)) + lower;
 }
 
@@ -14,32 +24,30 @@ double MgetSourceTypeCFPerUnit(enum MsourceTypes type) {
     switch (type)
     {
         case coal:
-            ret = 0;
+            ret = MrandomRange(8500, 10500);
             break;
         case nuclear:
-            ret = 0;
-            break;
-        case gas:
-            ret = 0;
-            break;
         case solar:
             ret = 0;
             break;
+        case gas:
+            ret = MrandomRange(4500,6500);
+            break;
         case hydro:
-            ret = 0;
+            ret = MrandomRange(45, 135);
             break;
         case wind:
-            ret = 0;
+            ret = MrandomRange(7, 18);
             break;
         case biomass:
-            ret = 0;
+            ret = MrandomRange(90, 450);
             break;
         case other:
-            ret = 0;
+            ret = 0; //TODO CF of other sources
             break;
         default:
             ret = -1;
             break;
     }
-    return ret;
+    return ret/10;
 }
