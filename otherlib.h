@@ -40,7 +40,7 @@ long parseValue(FILE *fd);
 void setVarNamesFromConfFile(const long *values);
 
 enum errors{
-    errFileOpen, errFileFormat
+    errFileOpen = 1, errFileFormat
 };
 
 void messageAndExit();

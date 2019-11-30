@@ -24,7 +24,7 @@ int main() {
     printf("%li", MfinalPercentageProduceNuclear);
     printf("%li", MfinalPercentageProduceOther);
     */
-    if(MinitSimulation())
+    if(!MinitSimulation())
         messageAndExit();
 
     startSimulation();
