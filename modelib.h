@@ -7,12 +7,12 @@
 
 #include <stdbool.h>
 
-//TODO berry check INIT_DAILY_PRODUCE_GWH
-#define INIT_DAILY_PRODUCE_GWH 88002 //daily production of electricity in GWH at the beginning of simulation
+//TODO berry check INIT_DAILY_PRODUCE_KWH
+#define INIT_DAILY_PRODUCE_KWH 88002000 //daily production of electricity in kWH at the beginning of simulation
 //TODO berry spocitej daily deltu a zapis ji do makra nize
 #define DAILY_INCREASE_PRODUCE_KWH 000 //daily increase of electricity consumption
 
-//TODO berry prosim doplnit vse nize + mi sem poznamenej jednotky (vsude stejne samozrejme :D)
+//TODO berry prosim doplnit vse nize + mi sem poznamenej jednotky
 //installed power of each type in JEDNOTKA per OBDOBI at the beginning of simulation
 #define INIT_INSTALLED_POWER_COAL 0
 #define INIT_INSTALLED_POWER_NUCLEAR 0
@@ -44,25 +44,35 @@
 #define ENDURANCE_OTHER 0
 
 
-long Mdays; //days of simulation passed
-long Myears; //years of simulation passed
-long MlimitYears; //number of years after the simulation stops
+int Mdays; //days of simulation passed
+int Myears; //years of simulation passed
+int MlimitYears; //number of years after the simulation stops
 
-long long MfinalCF; //final output of carbon footprint
-long long MyearCF; //yearly output of carbon footprint
+unsigned long long MfinalCFkg; //final output of carbon footprint
+unsigned long long MyearCF; //yearly output of carbon footprint
 double MdailyCF; //daily output of CF
 
-long MdailyProduceGWH; //how much energy needs to be produced in a day (GWH)
+long MdailyProductionKWH; //how much energy needs to be produced in a day (kWH)
 
 //what percentage of energy should generate each source at the end of simulation
-long MfinalPercentageProduceCoal;
-long MfinalPercentageProduceNuclear;
-long MfinalPercentageProduceWind;
-long MfinalPercentageProduceHydro;
-long MfinalPercentageProduceBiomass;
-long MfinalPercentageProduceSolar;
-long MfinalPercentageProduceGas;
-long MfinalPercentageProduceOther;
+int MfinalPercentageProduceCoal;
+int MfinalPercentageProduceNuclear;
+int MfinalPercentageProduceWind;
+int MfinalPercentageProduceHydro;
+int MfinalPercentageProduceBiomass;
+int MfinalPercentageProduceSolar;
+int MfinalPercentageProduceGas;
+int MfinalPercentageProduceOther;
+
+//actual percentage of energy produced by each source at the time
+float MactualPercentageProduceCoal;
+float MactualPercentageProduceNuclear;
+float MactualPercentageProduceWind;
+float MactualPercentageProduceHydro;
+float MactualPercentageProduceBiomass;
+float MactualPercentageProduceSolar;
+float MactualPercentageProduceGas;
+float MactualPercentageProduceOther;
 
 //Yearly change of percentage of energy production of each source (linear from start state to final year state)
 float MyearlyChangePercentageProduceCoal;
@@ -81,11 +91,20 @@ enum MsourceTypes
 };
 
 /**
- * Returns carbon footprint per produced kWh for chosen source type in grams of CO2
+ * Returns carbon footprint of produced powerAmountKWH for chosen source type in grams of CO2
  * @param type
+ * @param powerAmountKWH
  * @return
  */
-double MgetSourceTypeCFPerUnit(enum MsourceTypes type);
+double MgetCFBySourceType(enum MsourceTypes type, double powerAmountKWH);
+
+/**
+ * Returns CF of building new source of power
+ * @param type
+ * @param installedPowerKWH
+ * @return
+ */
+double MgetSourceTypeBuildCF(enum MsourceTypes type, long installedPowerKWH);
 
 /**
  * return random number between lower and upper number
@@ -93,9 +112,11 @@ double MgetSourceTypeCFPerUnit(enum MsourceTypes type);
  * @param upper
  * @return
  */
-int MrandomRange(int lower, int upper);
+long MrandomRange(long lower, long upper);
 
-void MgetYearlyChangePercentageProduceAllSources();
+float MgetYearlyChangePercentageProduce(int startPercentage, int finalPercentage);
+
+void MsetYearlyChangePercentageProduces();
 
 /**
  * inits all variables for start of simulation, also reads from config file
@@ -103,7 +124,22 @@ void MgetYearlyChangePercentageProduceAllSources();
  */
 bool MinitSimulation();
 
-void startSimulation();
+void MstartSimulation();
+
+/**
+ * Simulates one year, doesn't take care of incrementing Myears
+ */
+void MsimulateYear();
+
+/**
+ * simulates one day,  doesn't take care of incrementing Mdays
+ */
+void MsimulateDay();
+
+/**
+ * updates actual percentages of production of each source type
+ */
+void updateProductionRatio();
 
 
 #endif //IMS_MODELIB_H

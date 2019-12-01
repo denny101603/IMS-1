@@ -27,7 +27,7 @@ int main() {
     if(!MinitSimulation())
         messageAndExit();
 
-    startSimulation();
+    MstartSimulation();
     return 0;
 }
 

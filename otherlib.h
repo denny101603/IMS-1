@@ -45,5 +45,12 @@ enum errors{
 
 void messageAndExit();
 
+/**
+ * Returns 10**power, works only for power >= 0!
+ * @param power
+ * @return
+ */
+long pow10(unsigned int power);
+
 
 #endif //IMS_OTHERLIB_H

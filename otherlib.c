@@ -74,15 +74,15 @@ bool checkVars(long *vars) {
 
 void setVarNamesFromConfFile(const long *values) {
     int i = 0;
-    MlimitYears = values[i++];
-    MfinalPercentageProduceCoal = values[i++];
-    MfinalPercentageProduceSolar = values[i++];
-    MfinalPercentageProduceWind = values[i++];
-    MfinalPercentageProduceHydro = values[i++];
-    MfinalPercentageProduceNuclear = values[i++];
-    MfinalPercentageProduceBiomass = values[i++];
-    MfinalPercentageProduceGas = values[i++];
-    MfinalPercentageProduceOther = values[i++];
+    MlimitYears = (int) values[i++];
+    MfinalPercentageProduceCoal = (int) values[i++];
+    MfinalPercentageProduceSolar = (int) values[i++];
+    MfinalPercentageProduceWind = (int) values[i++];
+    MfinalPercentageProduceHydro = (int) values[i++];
+    MfinalPercentageProduceNuclear = (int) values[i++];
+    MfinalPercentageProduceBiomass = (int) values[i++];
+    MfinalPercentageProduceGas = (int) values[i++];
+    MfinalPercentageProduceOther = (int) values[i++];
 }
 
 
@@ -136,6 +136,15 @@ void messageAndExit() {
             break;
     }
     exit(err);
+}
+
+long pow10(unsigned int power) {
+    long base = 10;
+    long result = 1;
+    for (int i = 0; i < power; ++i) {
+        result *= base;
+    }
+    return result;
 }
 
 
