@@ -23,7 +23,7 @@
 #define INIT_INSTALLED_POWER_GAS 0
 #define INIT_INSTALLED_POWER_OTHER 0
 
-//ratio of sources of really produced electricity at the beginning of simulation
+//percentage of really produced electricity of each source at the beginning of simulation
 #define INIT_PERCENTAGE_PRODUCE_COAL 0
 #define INIT_PERCENTAGE_PRODUCE_NUCLEAR 0
 #define INIT_PERCENTAGE_PRODUCE_WIND 0
@@ -52,6 +52,9 @@ long long MfinalCF; //final output of carbon footprint
 long long MyearCF; //yearly output of carbon footprint
 double MdailyCF; //daily output of CF
 
+long MdailyProduceGWH; //how much energy needs to be produced in a day (GWH)
+
+//what percentage of energy should generate each source at the end of simulation
 long MfinalPercentageProduceCoal;
 long MfinalPercentageProduceNuclear;
 long MfinalPercentageProduceWind;
@@ -61,7 +64,15 @@ long MfinalPercentageProduceSolar;
 long MfinalPercentageProduceGas;
 long MfinalPercentageProduceOther;
 
-
+//Yearly change of percentage of energy production of each source (linear from start state to final year state)
+float MyearlyChangePercentageProduceCoal;
+float MyearlyChangePercentageProduceNuclear;
+float MyearlyChangePercentageProduceWind;
+float MyearlyChangePercentageProduceHydro;
+float MyearlyChangePercentageProduceBiomass;
+float MyearlyChangePercentageProduceSolar;
+float MyearlyChangePercentageProduceGas;
+float MyearlyChangePercentageProduceOther;
 
 const int MsourceTypesNumber; //number of used types of sources
 enum MsourceTypes
@@ -83,6 +94,8 @@ double MgetSourceTypeCFPerUnit(enum MsourceTypes type);
  * @return
  */
 int MrandomRange(int lower, int upper);
+
+void MgetYearlyChangePercentageProduceAllSources();
 
 /**
  * inits all variables for start of simulation, also reads from config file

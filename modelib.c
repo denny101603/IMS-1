@@ -53,6 +53,11 @@ double MgetSourceTypeCFPerUnit(enum MsourceTypes type) {
     return ret/10.0; //the CFs upper are 10x bigger than real ones to easily generate random nums, so it needs to be divided
 }
 
+void MgetYearlyChangePercentageProduceAllSources()
+{
+    MyearlyChangePercentageProduceCoal = MgetYearlyChangePercentageProduce(INIT_PERCENTAGE_PRODUCE_COAL, MfinalPercentageProduceCoal);
+}
+
 bool MinitSimulation()
 {
     err = 0;
@@ -65,6 +70,8 @@ bool MinitSimulation()
     MdailyCF = 0;
     MyearCF = 0;
     MfinalCF = 0;
+
+    MdailyProduceGWH = INIT_DAILY_PRODUCE_GWH;
 
     return true;
 }
