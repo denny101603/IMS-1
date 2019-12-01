@@ -12,8 +12,8 @@
 //TODO berry spocitej daily deltu a zapis ji do makra nize
 #define DAILY_INCREASE_PRODUCE_KWH 000 //daily increase of electricity consumption
 
-//TODO berry prosim doplnit vse nize + mi sem poznamenej jednotky
-//installed power of each type in JEDNOTKA per OBDOBI at the beginning of simulation
+//TODO berry prosim doplnit vse nize ve spravnych jednotkach
+//installed power of each type in kW at the beginning of simulation
 #define INIT_INSTALLED_POWER_COAL 0
 #define INIT_INSTALLED_POWER_NUCLEAR 0
 #define INIT_INSTALLED_POWER_WIND 0
@@ -84,6 +84,16 @@ float MyearlyChangePercentageProduceSolar;
 float MyearlyChangePercentageProduceGas;
 float MyearlyChangePercentageProduceOther;
 
+//actual installed power of each source type
+unsigned long MactualInstalledPowerKWCoal;
+unsigned long MactualInstalledPowerKWNuclear;
+unsigned long MactualInstalledPowerKWWind;
+unsigned long MactualInstalledPowerKWHydro;
+unsigned long MactualInstalledPowerKWBiomass;
+unsigned long MactualInstalledPowerKWSolar;
+unsigned long MactualInstalledPowerKWGas;
+unsigned long MactualInstalledPowerKWOther;
+
 const int MsourceTypesNumber; //number of used types of sources
 enum MsourceTypes
 {
@@ -139,7 +149,23 @@ void MsimulateDay();
 /**
  * updates actual percentages of production of each source type
  */
-void updateProductionRatio();
+void MupdateProductionRatio();
 
+unsigned long long McorrectInstalledPower();
+
+/**
+ * returns necessary installed power to produce daily amount of energy (kWH)
+ * @param type
+ * @param powerAmount
+ * @return
+ */
+unsigned long long MgetNecesaryInstalledPowerKW(enum MsourceTypes type, unsigned long long dailyEnergyAmountKWH);
+
+/**
+ * returns daily production of energy (kWH per day) of a source type by its actual percentage
+ * @param actualSourcePercentage
+ * @return
+ */
+double MgetActualDailyProductionBySource(float actualSourcePercentage);
 
 #endif //IMS_MODELIB_H

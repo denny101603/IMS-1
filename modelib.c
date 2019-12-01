@@ -10,6 +10,9 @@
 const int MsourceTypesNumber = 8;
 
 
+unsigned long long
+MincreaseInstalledPower(enum MsourceTypes type, double realDailySourceProduction,
+                        unsigned long *actualInstalledSourcePowerKw);
 
 long MrandomRange(long lower, long upper) {
     static int init = 1;
@@ -131,8 +134,16 @@ bool MinitSimulation()
     MactualPercentageProduceGas = INIT_PERCENTAGE_PRODUCE_GAS;
     MactualPercentageProduceOther = INIT_PERCENTAGE_PRODUCE_OTHER;
 
-    MsetYearlyChangePercentageProduces();
+    MactualInstalledPowerKWCoal = INIT_INSTALLED_POWER_COAL;
+    MactualInstalledPowerKWNuclear = INIT_INSTALLED_POWER_NUCLEAR;
+    MactualInstalledPowerKWWind = INIT_INSTALLED_POWER_WIND;
+    MactualInstalledPowerKWHydro = INIT_INSTALLED_POWER_HYDRO;
+    MactualInstalledPowerKWBiomass = INIT_INSTALLED_POWER_BIOMASS;
+    MactualInstalledPowerKWSolar = INIT_INSTALLED_POWER_SOLAR;
+    MactualInstalledPowerKWGas = INIT_INSTALLED_POWER_GAS;
+    MactualInstalledPowerKWOther = INIT_INSTALLED_POWER_OTHER;
 
+    MsetYearlyChangePercentageProduces();
 
     return true;
 }
@@ -141,17 +152,32 @@ void MstartSimulation()
 {
     while (MlimitYears >= Myears)
     {
+
         MsimulateYear();
-        updateProductionRatio();
+        MupdateProductionRatio();
         //todo postavit nove elektrarny
+        MyearCF += McorrectInstalledPower();
         //todo obnovit elektrarny
-        //todo zabit elektrarny s prilis vysokym instalovanym vykonem vuci realne produkci
         MfinalCFkg += MyearCF / 1000; //g -> kg
         Myears++;
     }
 }
 
-void updateProductionRatio()
+unsigned long long McorrectInstalledPower()
+{
+    //todo zabit elektrarny s prilis vysokym instalovanym vykonem vuci realne produkci
+    unsigned long long cf = 0;
+    cf += MincreaseInstalledPower(coal, MgetActualDailyProductionBySource(MactualPercentageProduceCoal), &MactualInstalledPowerKWCoal);
+    //todo copy for all source types
+}
+
+unsigned long long MincreaseInstalledPower(enum MsourceTypes type, double realDailySourceProduction, unsigned long *actualInstalledSourcePowerKw)
+{
+    //todo
+    return 0;
+}
+
+void MupdateProductionRatio()
 {
     MactualPercentageProduceCoal += MyearlyChangePercentageProduceCoal;
     MactualPercentageProduceNuclear += MyearlyChangePercentageProduceNuclear;
@@ -182,13 +208,25 @@ void MsimulateYear()
 
 void MsimulateDay()
 {
-    MdailyCF = MgetCFBySourceType(coal, MactualPercentageProduceCoal / 100.0 * MdailyProductionKWH);
-    MdailyCF += MgetCFBySourceType(nuclear, MactualPercentageProduceNuclear / 100.0 * MdailyProductionKWH);
-    MdailyCF += MgetCFBySourceType(wind, MactualPercentageProduceWind / 100.0 * MdailyProductionKWH);
-    MdailyCF += MgetCFBySourceType(hydro, MactualPercentageProduceHydro / 100.0 * MdailyProductionKWH);
-    MdailyCF += MgetCFBySourceType(biomass, MactualPercentageProduceBiomass / 100.0 * MdailyProductionKWH);
-    MdailyCF += MgetCFBySourceType(solar, MactualPercentageProduceSolar / 100.0 * MdailyProductionKWH);
-    MdailyCF += MgetCFBySourceType(gas, MactualPercentageProduceGas / 100.0 * MdailyProductionKWH);
-    MdailyCF += MgetCFBySourceType(other, MactualPercentageProduceOther / 100.0 * MdailyProductionKWH);
+    MdailyCF = MgetCFBySourceType(coal, MgetActualDailyProductionBySource(MactualPercentageProduceCoal));
+    MdailyCF += MgetCFBySourceType(nuclear, MgetActualDailyProductionBySource(MactualPercentageProduceNuclear));
+    MdailyCF += MgetCFBySourceType(wind, MgetActualDailyProductionBySource(MactualPercentageProduceWind));
+    MdailyCF += MgetCFBySourceType(hydro, MgetActualDailyProductionBySource(MactualPercentageProduceHydro));
+    MdailyCF += MgetCFBySourceType(biomass, MgetActualDailyProductionBySource(MactualPercentageProduceBiomass));
+    MdailyCF += MgetCFBySourceType(solar, MgetActualDailyProductionBySource(MactualPercentageProduceSolar));
+    MdailyCF += MgetCFBySourceType(gas, MgetActualDailyProductionBySource(MactualPercentageProduceGas));
+    MdailyCF += MgetCFBySourceType(other, MgetActualDailyProductionBySource(MactualPercentageProduceOther));
+}
+
+double MgetActualDailyProductionBySource(float actualSourcePercentage)
+{
+    return actualSourcePercentage / 100.0 * MdailyProductionKWH;
+}
+
+unsigned long long MgetNecesaryInstalledPowerKW(enum MsourceTypes type, unsigned long long dailyEnergyAmountKWH) {
+    //todo berry
+    //todo denny
+    //tohle sam asi nedam
+    return 0;
 }
 
