@@ -145,6 +145,16 @@ bool MinitSimulation()
 
     MsetYearlyChangePercentageProduces();
 
+    //koeficient vyuziti pro celou simulaci bude vychazet z koeficientu pocatecnich
+    MutilizationRatioCoal = INIT_DAILY_PRODUCE_KWH * (float) INIT_PERCENTAGE_PRODUCE_COAL / 100 / 24 /INIT_INSTALLED_POWER_COAL;
+    MutilizationRatioNuclear = INIT_DAILY_PRODUCE_KWH * (float) INIT_PERCENTAGE_PRODUCE_NUCLEAR / 100 / 24 /INIT_INSTALLED_POWER_NUCLEAR;
+    MutilizationRatioWind = INIT_DAILY_PRODUCE_KWH * (float) INIT_PERCENTAGE_PRODUCE_WIND / 100 / 24 /INIT_INSTALLED_POWER_WIND;
+    MutilizationRatioHydro = INIT_DAILY_PRODUCE_KWH * (float) INIT_PERCENTAGE_PRODUCE_HYDRO / 100 / 24 /INIT_INSTALLED_POWER_HYDRO;
+    MutilizationRatioBiomass = INIT_DAILY_PRODUCE_KWH * (float) INIT_PERCENTAGE_PRODUCE_BIOMASS / 100 / 24 /INIT_INSTALLED_POWER_BIOMASS;
+    MutilizationRatioSolar = INIT_DAILY_PRODUCE_KWH * (float) INIT_PERCENTAGE_PRODUCE_SOLAR / 100 / 24 /INIT_INSTALLED_POWER_SOLAR;
+    MutilizationRatioGas = INIT_DAILY_PRODUCE_KWH * (float) INIT_PERCENTAGE_PRODUCE_GAS / 100 / 24 /INIT_INSTALLED_POWER_GAS;
+    MutilizationRatioOther = INIT_DAILY_PRODUCE_KWH * (float) INIT_PERCENTAGE_PRODUCE_OTHER / 100 / 24 /INIT_INSTALLED_POWER_OTHER;
+
     return true;
 }
 
@@ -223,12 +233,49 @@ double MgetActualDailyProductionBySource(float actualSourcePercentage)
     return actualSourcePercentage / 100.0 * MdailyProductionKWH;
 }
 
-unsigned long long MgetNecesaryInstalledPowerKW(enum MsourceTypes type, unsigned long long dailyEnergyAmountKWH) {
-    //todo berry
-    //todo denny
+unsigned long long MgetNecessaryInstalledPowerKW(enum MsourceTypes type)
+{
+    float coefficient = -1;
+    float percentage = -1;
+    switch (type)
+    {
+        case coal:
+            coefficient = MutilizationRatioCoal;
+            percentage = MactualPercentageProduceCoal;
+            break;
+        case nuclear:
+            coefficient = MutilizationRatioNuclear;
+            percentage = MactualPercentageProduceCoal;
+            break;
+        case solar:
+            coefficient = MutilizationRatioSolar;
+            percentage = MactualPercentageProduceSolar;
+            break;
+        case wind:
+            coefficient = MutilizationRatioWind;
+            percentage = MactualPercentageProduceWind;
+            break;
+        case gas:
+            coefficient = MutilizationRatioGas;
+            percentage = MactualPercentageProduceGas;
+            break;
+        case hydro:
+            coefficient = MutilizationRatioHydro;
+            percentage = MactualPercentageProduceHydro;
+            break;
+        case biomass:
+            coefficient = MutilizationRatioBiomass;
+            percentage = MactualPercentageProduceBiomass;
+            break;
+        case other:
+            coefficient = MutilizationRatioOther;
+            percentage = MactualPercentageProduceOther;
+            break;
+    }
+    if (coefficient < 0 || percentage < 0)
+        return -1;
+
     // instalovaný výkon*koeficient využití = průměrný výkon
-    //př. 1000 * 0,09 = 90
-    //tohle sam asi nedam
-    return 0;
+    return MdailyProductionKWH / 24 * percentage / 100 / coefficient;
 }
 
