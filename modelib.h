@@ -10,8 +10,8 @@
 #define INIT_DAILY_PRODUCE_KWH 88002000000/365 //daily production of electricity in kWh at the beginning of simulation
 
 //viz tabulka 3 (hodnoty zde deleny 365)
-#define DAILY_INCREASE_PRODUCE_KWH_CONSERVATIVE 0.0015395 //daily increase of electricity consumption
-#define DAILY_INCREASE_PRODUCE_KWH_DYNAMIC 0.0028480 //daily increase of electricity consumption
+#define DAILY_INCREASE_PRODUCE_KWH_CONSERVATIVE 1539500 //daily increase of electricity consumption
+#define DAILY_INCREASE_PRODUCE_KWH_DYNAMIC 2848000 //daily increase of electricity consumption
 
 //installed power of each type in kW at the beginning of simulation
 #define INIT_INSTALLED_POWER_COAL 11075
