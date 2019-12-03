@@ -1,5 +1,6 @@
 # IMS
 * odkaz pro zápis objevených poznatků: https://docs.google.com/document/d/1BZel_zXxoHvnEIaxBDMugz7P92Mx3QtE-5Gqel-FeVg/edit?usp=sharing
+* doc: https://www.overleaf.com/project/5de25dd01bc7220001a5779d
 # program usage
 * imsConf.txt must be in the same directory as runnable file
 * in imsConf.txt you can change only values, nothing else (order, any white spaces), must be LF on the end of every line
