@@ -7,41 +7,41 @@
 
 #include <stdbool.h>
 
-//TODO berry check INIT_DAILY_PRODUCE_KWH
-#define INIT_DAILY_PRODUCE_KWH 88002000 //daily production of electricity in kWH at the beginning of simulation
-//TODO berry spocitej daily deltu a zapis ji do makra nize
-#define DAILY_INCREASE_PRODUCE_KWH 000 //daily increase of electricity consumption
+#define INIT_DAILY_PRODUCE_KWH 88002000000/365 //daily production of electricity in kWh at the beginning of simulation
 
-//TODO berry prosim doplnit vse nize ve spravnych jednotkach
+//viz tabulka 3 (hodnoty zde deleny 365)
+#define DAILY_INCREASE_PRODUCE_KWH_CONSERVATIVE 0.0015395 //daily increase of electricity consumption
+#define DAILY_INCREASE_PRODUCE_KWH_DYNAMIC 0.0028480 //daily increase of electricity consumption
+
 //installed power of each type in kW at the beginning of simulation
-#define INIT_INSTALLED_POWER_COAL 0
-#define INIT_INSTALLED_POWER_NUCLEAR 0
-#define INIT_INSTALLED_POWER_WIND 0
-#define INIT_INSTALLED_POWER_HYDRO 0
-#define INIT_INSTALLED_POWER_BIOMASS 0
-#define INIT_INSTALLED_POWER_SOLAR 0
-#define INIT_INSTALLED_POWER_GAS 0
-#define INIT_INSTALLED_POWER_OTHER 0
+#define INIT_INSTALLED_POWER_COAL 11075
+#define INIT_INSTALLED_POWER_NUCLEAR 4290
+#define INIT_INSTALLED_POWER_WIND 316
+#define INIT_INSTALLED_POWER_HYDRO 1092
+#define INIT_INSTALLED_POWER_BIOMASS 1100
+#define INIT_INSTALLED_POWER_SOLAR 2057
+#define INIT_INSTALLED_POWER_GAS 2200
+#define INIT_INSTALLED_POWER_OTHER 500 //odhad
 
 //percentage of really produced electricity of each source at the beginning of simulation
-#define INIT_PERCENTAGE_PRODUCE_COAL 0
-#define INIT_PERCENTAGE_PRODUCE_NUCLEAR 0
-#define INIT_PERCENTAGE_PRODUCE_WIND 0
-#define INIT_PERCENTAGE_PRODUCE_HYDRO 0
-#define INIT_PERCENTAGE_PRODUCE_BIOMASS 0
-#define INIT_PERCENTAGE_PRODUCE_SOLAR 0
-#define INIT_PERCENTAGE_PRODUCE_GAS 0
-#define INIT_PERCENTAGE_PRODUCE_OTHER 0
+#define INIT_PERCENTAGE_PRODUCE_COAL 46.8
+#define INIT_PERCENTAGE_PRODUCE_NUCLEAR 34
+#define INIT_PERCENTAGE_PRODUCE_WIND 0.7
+#define INIT_PERCENTAGE_PRODUCE_HYDRO 1.9
+#define INIT_PERCENTAGE_PRODUCE_BIOMASS 5.5
+#define INIT_PERCENTAGE_PRODUCE_SOLAR 2.7
+#define INIT_PERCENTAGE_PRODUCE_GAS 7.1
+#define INIT_PERCENTAGE_PRODUCE_OTHER 1.3
 
-//every source type has it's own endurance in years before it has to be changed
-#define ENDURANCE_COAL 0
-#define ENDURANCE_NUCLEAR 0
-#define ENDURANCE_WIND 0
-#define ENDURANCE_HYDRO 0
-#define ENDURANCE_BIOMASS 0
-#define ENDURANCE_SOLAR 0
-#define ENDURANCE_GAS 0
-#define ENDURANCE_OTHER 0
+//every source type has it's own AVERAGE_LIFESPAN in years before it has to be changed
+#define AVERAGE_LIFESPAN_COAL 50
+#define AVERAGE_LIFESPAN_NUCLEAR 50
+#define AVERAGE_LIFESPAN_WIND 25
+#define AVERAGE_LIFESPAN_HYDRO 50
+#define AVERAGE_LIFESPAN_BIOMASS 25
+#define AVERAGE_LIFESPAN_SOLAR 25
+#define AVERAGE_LIFESPAN_GAS 50
+#define AVERAGE_LIFESPAN_OTHER 35
 
 
 int Mdays; //days of simulation passed
@@ -111,10 +111,10 @@ double MgetCFBySourceType(enum MsourceTypes type, double powerAmountKWH);
 /**
  * Returns CF of building new source of power
  * @param type
- * @param installedPowerKWH
+ * @param installedPowerKW
  * @return
  */
-double MgetSourceTypeBuildCF(enum MsourceTypes type, long installedPowerKWH);
+double MgetSourceTypeBuildCF(enum MsourceTypes type, long installedPowerKW);
 
 /**
  * return random number between lower and upper number

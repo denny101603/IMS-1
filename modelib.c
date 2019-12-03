@@ -48,7 +48,7 @@ double MgetCFBySourceType(enum MsourceTypes type, double powerAmountKWH) {
             ret = MrandomRange(90, 450);
             break;
         case other:
-            ret = 0; //TODO CF of other sources
+            ret =  MrandomRange(1877, 2515);//aritmetický průměr
             break;
         default:
             ret = -1;
@@ -57,39 +57,39 @@ double MgetCFBySourceType(enum MsourceTypes type, double powerAmountKWH) {
     return ret/10.0*powerAmountKWH; //the CFs upper are 10x bigger than real ones to easily generate random nums, so it needs to be divided
 }
 
-//todo berry doplnit fci nize o konkretni cisla (mas tam vzor, jak si myslim ze by to melo vypadat pro solar)
-double MgetSourceTypeBuildCF(enum MsourceTypes type, long installedPowerKWH) {
+//NOTE: Uhlí má při produkci elektřiny tak brutální emise, že bych deharmonizací všechno spíš znepřesnil, plyn se řídí uhlím
+double MgetSourceTypeBuildCF(enum MsourceTypes type, long installedPowerKW) {
     long ret;
     switch (type) {
         case coal:
-            ret = MrandomRange(8500, 10500);
+            ret = 1; //v pomeru k produkci zanedbatelna a nedohledatelna (rozhodně pod 1 %, vzhledem k číslům odhaduji tak kolem 0.001%)
             break;
         case nuclear:
-            ret = 1;
+            ret = MrandomRange(2279 * pow10(6), 2416* pow10(6))*+739*pow10(3); //přičítaná hodnota je za výrobu, vzhledem k výrobě je tak malá, že by nešla rozpočítat
             break;
         case solar:
-            ret = MrandomRange(6 * pow10(5), 12 * pow10(5)); //VZOR PRO BERRYHO
+            ret = MrandomRange(107 * pow10(5), 148 * pow10(5));
             break;
         case gas:
-            ret = MrandomRange(4500, 6500);
+            ret = 1; //viz uhlí
             break;
         case hydro:
-            ret = MrandomRange(45, 135);
+            ret = MrandomRange(1752 * pow10(4), 55188*pow10(4));
             break;
         case wind:
-            ret = MrandomRange(7, 18);
+            ret = MrandomRange(1406 * pow10(6), 3514* pow10(6));
             break;
         case biomass:
-            ret = MrandomRange(90, 450);
+            ret = MrandomRange(876*pow10(3), 105*pow10(5));
             break;
         case other:
-            ret = 0; //TODO CF of other sources
+            ret = MrandomRange(5*pow10(7),1*pow10(8)); //aritmetický průměr ostatních
             break;
         default:
             ret = -1;
             break;
     }
-    return ((double)ret) * installedPowerKWH;
+    return ((double)ret) * installedPowerKW;
 }
 
 
@@ -201,7 +201,7 @@ void MsimulateYear()
     {
         MsimulateDay();
         MyearCF += (unsigned long long) MdailyCF; //not important loose of precision
-        MdailyProductionKWH += DAILY_INCREASE_PRODUCE_KWH;
+        MdailyProductionKWH += DAILY_INCREASE_PRODUCE_KWH_CONSERVATIVE;
         Mdays++;
     }
 }
@@ -226,6 +226,8 @@ double MgetActualDailyProductionBySource(float actualSourcePercentage)
 unsigned long long MgetNecesaryInstalledPowerKW(enum MsourceTypes type, unsigned long long dailyEnergyAmountKWH) {
     //todo berry
     //todo denny
+    // instalovaný výkon*koeficient využití = průměrný výkon
+    //př. 1000 * 0,09 = 90
     //tohle sam asi nedam
     return 0;
 }
