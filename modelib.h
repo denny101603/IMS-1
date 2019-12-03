@@ -14,14 +14,14 @@
 #define DAILY_INCREASE_PRODUCE_KWH_DYNAMIC 2848000 //daily increase of electricity consumption
 
 //installed power of each type in kW at the beginning of simulation
-#define INIT_INSTALLED_POWER_COAL 11075
-#define INIT_INSTALLED_POWER_NUCLEAR 4290
-#define INIT_INSTALLED_POWER_WIND 316
-#define INIT_INSTALLED_POWER_HYDRO 1092
-#define INIT_INSTALLED_POWER_BIOMASS 1100
-#define INIT_INSTALLED_POWER_SOLAR 2057
-#define INIT_INSTALLED_POWER_GAS 2200
-#define INIT_INSTALLED_POWER_OTHER 500 //odhad
+#define INIT_INSTALLED_POWER_COAL 9130000
+#define INIT_INSTALLED_POWER_NUCLEAR 4290000
+#define INIT_INSTALLED_POWER_WIND 277000
+#define INIT_INSTALLED_POWER_HYDRO 1090000
+#define INIT_INSTALLED_POWER_BIOMASS 450000
+#define INIT_INSTALLED_POWER_SOLAR 2030000
+#define INIT_INSTALLED_POWER_GAS 1610000
+#define INIT_INSTALLED_POWER_OTHER 700000 //odhad
 
 //percentage of really produced electricity of each source at the beginning of simulation
 #define INIT_PERCENTAGE_PRODUCE_COAL 46.8
@@ -32,6 +32,7 @@
 #define INIT_PERCENTAGE_PRODUCE_SOLAR 2.7
 #define INIT_PERCENTAGE_PRODUCE_GAS 7.1
 #define INIT_PERCENTAGE_PRODUCE_OTHER 1.3
+
 
 //every source type has it's own AVERAGE_LIFESPAN in years before it has to be changed
 #define AVERAGE_LIFESPAN_COAL 50
@@ -93,6 +94,16 @@ unsigned long MactualInstalledPowerKWBiomass;
 unsigned long MactualInstalledPowerKWSolar;
 unsigned long MactualInstalledPowerKWGas;
 unsigned long MactualInstalledPowerKWOther;
+
+//real produced power/installed power ratio (number 0 to 1)
+float MutilizationRatioCoal;
+float MutilizationRatioNuclear;
+float MutilizationRatioWind;
+float MutilizationRatioHydro;
+float MutilizationRatioBiomass;
+float MutilizationRatioSolar;
+float MutilizationRatioGas;
+float MutilizationRatioOther;
 
 const int MsourceTypesNumber; //number of used types of sources
 enum MsourceTypes
@@ -156,10 +167,9 @@ unsigned long long McorrectInstalledPower();
 /**
  * returns necessary installed power to produce daily amount of energy (kWH)
  * @param type
- * @param powerAmount
  * @return
  */
-unsigned long long MgetNecesaryInstalledPowerKW(enum MsourceTypes type, unsigned long long dailyEnergyAmountKWH);
+unsigned long long MgetNecessaryInstalledPowerKW(enum MsourceTypes type);
 
 /**
  * returns daily production of energy (kWH per day) of a source type by its actual percentage
