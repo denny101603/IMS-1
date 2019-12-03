@@ -7,7 +7,7 @@
 
 #include <stdbool.h>
 
-#define INIT_DAILY_PRODUCE_KWH 88002000000/365 //daily production of electricity in kWh at the beginning of simulation
+#define INIT_DAILY_PRODUCE_KWH 241101370 //daily production of electricity in kWh at the beginning of simulation
 
 //viz tabulka 3 (hodnoty zde deleny 365)
 #define DAILY_INCREASE_PRODUCE_KWH_CONSERVATIVE 1539500 //daily increase of electricity consumption
