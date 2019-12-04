@@ -166,10 +166,13 @@ void MstartSimulation()
     while (MlimitYears >= Myears)
     {
         MsimulateYear();
-        MupdateProductionRatio();
-        MyearCF += McorrectInstalledPower();
-        //todo obnovit elektrarny
-        MfinalCFkg += MyearCF / 1000; //g -> kg
+        if(MlimitYears != Myears)
+        {
+            MupdateProductionRatio();
+            MyearCF += McorrectInstalledPower();
+            //todo obnovit elektrarny
+            MfinalCFkg += MyearCF / 1000; //g -> kg
+        }
         logYear(Mverbose);
         Myears++;
     }
@@ -197,6 +200,7 @@ double MincreaseInstalledPower(enum MsourceTypes type, unsigned long *actualInst
     unsigned long necessaryInstalledPower = MgetNecessaryInstalledPowerKW(type);
     if(necessaryInstalledPower <= actualInstalledSourcePowerKw)
         return 0;
+    *actualInstalledSourcePowerKw += (necessaryInstalledPower - *actualInstalledSourcePowerKw);
     return MgetSourceTypeBuildCF(type, necessaryInstalledPower - *actualInstalledSourcePowerKw);
 }
 
