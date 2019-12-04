@@ -35,7 +35,7 @@ void logYear(int verbosity)
     printf("GHG [g CO2 eq.]: %lld\n", MyearCF);
     if(verbosity > 0)
     {
-        printf("Production [kWh]: %ld\n",MyearlyProductionKWH);
+        printf("Production [GWh]: %ld\n",MyearlyProductionGWH);
         printf("Percentage of each power plant type:\n"
                "*Coal: %f %%\n"
                "*Nuclear: %f %%\n"
@@ -62,7 +62,7 @@ void logYear(int verbosity)
                    MactualInstalledPowerKWBiomass, MactualInstalledPowerKWSolar, MactualInstalledPowerKWGas, MactualInstalledPowerKWOther);
         }
     }
-    printf("######################\n"
+    printf("######################\n");
 
 }
 
@@ -104,5 +104,5 @@ void logTotal(int verbosity)
         }
     }
     printf("**********************\n"
-           "**********************\n"
+           "**********************\n");
 }

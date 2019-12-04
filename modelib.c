@@ -6,10 +6,11 @@
 #include <time.h>
 #include "modelib.h"
 #include "otherlib.h"
+#include "loglib.h"
 
 const int MsourceTypesNumber = 8;
-int Mverbose = 0; //todo denny parsovat verbose a logovaci frekvenci z vstupniho souboru - frekvenci budes asi pouzivat ty, takze si ji uprav podle sveho :)
-Mfrequence MlogFrequence = total;
+int Mverbose = 2; //todo denny parsovat verbose a logovaci frekvenci z vstupniho souboru - frekvenci budes asi pouzivat ty, takze si ji uprav podle sveho :)
+Mfrequence MlogFrequence = yearly; //todo upravit
 
 
 double
@@ -123,6 +124,7 @@ bool MinitSimulation()
     MdailyCF = 0;
     MyearCF = 0;
     MfinalCFkg = 0;
+    MyearlyProductionGWH = 0;
 
     MdailyProductionKWH = INIT_DAILY_PRODUCE_KWH;
 
@@ -163,14 +165,15 @@ void MstartSimulation()
 {
     while (MlimitYears >= Myears)
     {
-
         MsimulateYear();
         MupdateProductionRatio();
         MyearCF += McorrectInstalledPower();
         //todo obnovit elektrarny
         MfinalCFkg += MyearCF / 1000; //g -> kg
+        logYear(Mverbose);
         Myears++;
     }
+    logTotal(Mverbose);
 }
 
 unsigned long long McorrectInstalledPower()
@@ -222,6 +225,7 @@ void MsimulateYear()
         MsimulateDay();
         MyearCF += (unsigned long long) MdailyCF; //not important loose of precision
         MdailyProductionKWH += DAILY_INCREASE_PRODUCE_KWH_CONSERVATIVE;
+        logDay(Mverbose);
         Mdays++;
     }
 }

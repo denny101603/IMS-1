@@ -60,7 +60,7 @@ unsigned long long MyearCF; //yearly output of carbon footprint
 double MdailyCF; //daily output of CF
 
 long MdailyProductionKWH; //how much energy needs to be produced in a day (kWH)
-
+long MyearlyProductionGWH; //how much energy was produced during the actual year (GWH)
 //what percentage of energy should generate each source at the end of simulation
 int MfinalPercentageProduceCoal;
 int MfinalPercentageProduceNuclear;
