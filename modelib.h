@@ -43,6 +43,12 @@
 #define AVERAGE_LIFESPAN_GAS 50
 #define AVERAGE_LIFESPAN_OTHER 35
 
+int Mverbose = 0; //todo denny parsovat verbose a logovaci frekvenci z vstupniho souboru - frekvenci budes asi pouzivat ty, takze si ji uprav podle sveho :)
+typedef enum{
+    daily, yearly, total
+}Mfrequence;
+Mfrequence MlogFrequence = total;
+
 
 int Mdays; //days of simulation passed
 int Myears; //years of simulation passed
