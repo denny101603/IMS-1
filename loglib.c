@@ -74,6 +74,7 @@ void logTotal(int verbosity)
            "Total log\n"
            "----------------------\n");
     printf("GHG [kg CO2 eq.]: %llu\n", MfinalCFkg);
+    printf("Daily production [kWh] %ld\n", MdailyProductionKWH);
     if(verbosity > 0)
     {
         printf("Years: %d\n", Myears);
