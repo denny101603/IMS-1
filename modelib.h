@@ -44,11 +44,11 @@
 #define AVERAGE_LIFESPAN_GAS 50
 #define AVERAGE_LIFESPAN_OTHER 35
 
-int Mverbose = 0; //todo denny parsovat verbose a logovaci frekvenci z vstupniho souboru - frekvenci budes asi pouzivat ty, takze si ji uprav podle sveho :)
+int Mverbose; //todo denny parsovat verbose a logovaci frekvenci z vstupniho souboru - frekvenci budes asi pouzivat ty, takze si ji uprav podle sveho :)
 typedef enum{
     daily, yearly, total
 }Mfrequence;
-Mfrequence MlogFrequence = total;
+Mfrequence MlogFrequence;
 
 
 int Mdays; //days of simulation passed
@@ -131,7 +131,7 @@ double MgetCFBySourceType(enum MsourceTypes type, double powerAmountKWH);
  * @param installedPowerKW
  * @return
  */
-double MgetSourceTypeBuildCF(enum MsourceTypes type, long installedPowerKW);
+double MgetSourceTypeBuildCF(enum MsourceTypes type, unsigned long installedPowerKW);
 
 /**
  * return random number between lower and upper number
@@ -175,7 +175,7 @@ unsigned long long McorrectInstalledPower();
  * @param type
  * @return
  */
-unsigned long long MgetNecessaryInstalledPowerKW(enum MsourceTypes type);
+unsigned long MgetNecessaryInstalledPowerKW(enum MsourceTypes type);
 
 /**
  * returns daily production of energy (kWH per day) of a source type by its actual percentage
