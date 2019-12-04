@@ -214,6 +214,24 @@ void MupdateProductionRatio()
     MactualPercentageProduceSolar += MyearlyChangePercentageProduceSolar;
     MactualPercentageProduceGas += MyearlyChangePercentageProduceGas;
     MactualPercentageProduceOther += MyearlyChangePercentageProduceOther;
+
+    if(MactualPercentageProduceCoal < 0)
+        MactualPercentageProduceCoal = 0;
+    if(MactualPercentageProduceNuclear < 0)
+        MactualPercentageProduceNuclear = 0;
+    if(MactualPercentageProduceWind < 0)
+        MactualPercentageProduceWind = 0;
+    if(MactualPercentageProduceHydro < 0)
+        MactualPercentageProduceHydro = 0;
+    if(MactualPercentageProduceBiomass < 0)
+        MactualPercentageProduceBiomass = 0;
+    if(MactualPercentageProduceSolar < 0)
+        MactualPercentageProduceSolar = 0;
+    if(MactualPercentageProduceGas < 0)
+        MactualPercentageProduceGas = 0;
+    if(MactualPercentageProduceOther < 0)
+        MactualPercentageProduceOther = 0;
+
 }
 
 void MsimulateYear() 
