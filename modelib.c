@@ -8,11 +8,12 @@
 #include "otherlib.h"
 
 const int MsourceTypesNumber = 8;
+int Mverbose = 0; //todo denny parsovat verbose a logovaci frekvenci z vstupniho souboru - frekvenci budes asi pouzivat ty, takze si ji uprav podle sveho :)
+Mfrequence MlogFrequence = total;
 
 
-unsigned long long
-MincreaseInstalledPower(enum MsourceTypes type, double realDailySourceProduction,
-                        unsigned long *actualInstalledSourcePowerKw);
+double
+MincreaseInstalledPower(enum MsourceTypes type, unsigned long *actualInstalledSourcePowerKw);
 
 long MrandomRange(long lower, long upper) {
     static int init = 1;
@@ -58,7 +59,7 @@ double MgetCFBySourceType(enum MsourceTypes type, double powerAmountKWH) {
 }
 
 //NOTE: Uhlí má při produkci elektřiny tak brutální emise, že bych deharmonizací všechno spíš znepřesnil, plyn se řídí uhlím
-double MgetSourceTypeBuildCF(enum MsourceTypes type, long installedPowerKW) {
+double MgetSourceTypeBuildCF(enum MsourceTypes type, unsigned long installedPowerKW) {
     long ret;
     switch (type) {
         case coal:
@@ -165,7 +166,6 @@ void MstartSimulation()
 
         MsimulateYear();
         MupdateProductionRatio();
-        //todo postavit nove elektrarny
         MyearCF += McorrectInstalledPower();
         //todo obnovit elektrarny
         MfinalCFkg += MyearCF / 1000; //g -> kg
@@ -176,15 +176,25 @@ void MstartSimulation()
 unsigned long long McorrectInstalledPower()
 {
     //todo zabit elektrarny s prilis vysokym instalovanym vykonem vuci realne produkci
-    unsigned long long cf = 0;
-    cf += MincreaseInstalledPower(coal, MgetActualDailyProductionBySource(MactualPercentageProduceCoal), &MactualInstalledPowerKWCoal);
-    //todo copy for all source types
+    double cf = 0;
+    cf += MincreaseInstalledPower(coal, &MactualInstalledPowerKWCoal);
+    cf += MincreaseInstalledPower(nuclear, &MactualInstalledPowerKWNuclear);
+    cf += MincreaseInstalledPower(wind, &MactualInstalledPowerKWWind);
+    cf += MincreaseInstalledPower(hydro, &MactualInstalledPowerKWHydro);
+    cf += MincreaseInstalledPower(biomass, &MactualInstalledPowerKWBiomass);
+    cf += MincreaseInstalledPower(solar, &MactualInstalledPowerKWSolar);
+    cf += MincreaseInstalledPower(gas, &MactualInstalledPowerKWGas);
+    cf += MincreaseInstalledPower(other, &MactualInstalledPowerKWOther);
+
+    return (unsigned long long) cf;
 }
 
-unsigned long long MincreaseInstalledPower(enum MsourceTypes type, double realDailySourceProduction, unsigned long *actualInstalledSourcePowerKw)
+double MincreaseInstalledPower(enum MsourceTypes type, unsigned long *actualInstalledSourcePowerKw)
 {
-    //todo
-    return 0;
+    unsigned long necessaryInstalledPower = MgetNecessaryInstalledPowerKW(type);
+    if(necessaryInstalledPower <= actualInstalledSourcePowerKw)
+        return 0;
+    return MgetSourceTypeBuildCF(type, necessaryInstalledPower - *actualInstalledSourcePowerKw);
 }
 
 void MupdateProductionRatio()
@@ -233,7 +243,7 @@ double MgetActualDailyProductionBySource(float actualSourcePercentage)
     return actualSourcePercentage / 100.0 * MdailyProductionKWH;
 }
 
-unsigned long long MgetNecessaryInstalledPowerKW(enum MsourceTypes type)
+unsigned long MgetNecessaryInstalledPowerKW(enum MsourceTypes type)
 {
     float coefficient = -1;
     float percentage = -1;
