@@ -50,14 +50,14 @@ void logYear(int verbosity)
         if(verbosity > 1)
         {
             printf("Installed power of each power plant type:\n"
-                   "*Coal:      %ld kW\n"
-                   "*Nuclear:   %ld kW\n"
-                   "*Wind:      %ld kW\n"
-                   "*Hydro:     %ld kW\n"
-                   "*Biomass:   %ld kW\n"
-                   "*Solar:     %ld kW\n"
-                   "*Gas:       %ld kW\n"
-                   "*Other:     %ld kW\n",
+                   "*Coal:      %lu kW\n"
+                   "*Nuclear:   %lu kW\n"
+                   "*Wind:      %lu kW\n"
+                   "*Hydro:     %lu kW\n"
+                   "*Biomass:   %lu kW\n"
+                   "*Solar:     %lu kW\n"
+                   "*Gas:       %lu kW\n"
+                   "*Other:     %lu kW\n",
                    MactualInstalledPowerKWCoal, MactualInstalledPowerKWNuclear, MactualInstalledPowerKWWind,MactualInstalledPowerKWHydro,
                    MactualInstalledPowerKWBiomass, MactualInstalledPowerKWSolar, MactualInstalledPowerKWGas, MactualInstalledPowerKWOther);
         }
@@ -92,14 +92,14 @@ void logTotal(int verbosity)
         {
             printf("------------------------\n");
             printf("Installed power of each power plant type:\n"
-                   "*Coal:      %ld kW\n"
-                   "*Nuclear:   %ld kW\n"
-                   "*Wind:      %ld kW\n"
-                   "*Hydro:     %ld kW\n"
-                   "*Biomass:   %ld kW\n"
-                   "*Solar:     %ld kW\n"
-                   "*Gas:       %ld kW\n"
-                   "*Other:     %ld kW\n",
+                   "*Coal:      %lu kW\n"
+                   "*Nuclear:   %lu kW\n"
+                   "*Wind:      %lu kW\n"
+                   "*Hydro:     %lu kW\n"
+                   "*Biomass:   %lu kW\n"
+                   "*Solar:     %lu kW\n"
+                   "*Gas:       %lu kW\n"
+                   "*Other:     %lu kW\n",
                    MactualInstalledPowerKWCoal, MactualInstalledPowerKWNuclear, MactualInstalledPowerKWWind,MactualInstalledPowerKWHydro,
                    MactualInstalledPowerKWBiomass, MactualInstalledPowerKWSolar, MactualInstalledPowerKWGas, MactualInstalledPowerKWOther);
         }

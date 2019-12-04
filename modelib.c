@@ -67,25 +67,25 @@ double MgetSourceTypeBuildCF(enum MsourceTypes type, unsigned long installedPowe
             ret = 1; //v pomeru k produkci zanedbatelna a nedohledatelna (rozhodně pod 1 %, vzhledem k číslům odhaduji tak kolem 0.001%)
             break;
         case nuclear:
-            ret = MrandomRange(2279 * pow10(6), 2416* pow10(6))*+739*pow10(3); //přičítaná hodnota je za výrobu, vzhledem k výrobě je tak malá, že by nešla rozpočítat
+            ret = MrandomRange(2279 * pow10(3), 2416* pow10(3))+739; //přičítaná hodnota je za výrobu, vzhledem k výrobě je tak malá, že by nešla rozpočítat
             break;
         case solar:
-            ret = MrandomRange(107 * pow10(5), 148 * pow10(5));
+            ret = MrandomRange(107 * pow10(2), 148 * pow10(2));
             break;
         case gas:
             ret = 1; //viz uhlí
             break;
         case hydro:
-            ret = MrandomRange(1752 * pow10(4), 55188*pow10(4));
+            ret = MrandomRange(1752 * pow10(1), 55188*pow10(1));
             break;
         case wind:
-            ret = MrandomRange(1406 * pow10(6), 3514* pow10(6));
+            ret = MrandomRange(1406 * pow10(3), 3514* pow10(3));
             break;
         case biomass:
             ret = MrandomRange(876*pow10(3), 105*pow10(5));
             break;
         case other:
-            ret = MrandomRange(5*pow10(7),1*pow10(8)); //aritmetický průměr ostatních
+            ret = MrandomRange(5*pow10(4),1*pow10(5)); //aritmetický průměr ostatních
             break;
         default:
             ret = -1;
@@ -95,7 +95,7 @@ double MgetSourceTypeBuildCF(enum MsourceTypes type, unsigned long installedPowe
 }
 
 
-float MgetYearlyChangePercentageProduce(int startPercentage, int finalPercentage)
+float MgetYearlyChangePercentageProduce(float startPercentage, float finalPercentage)
 {
     return ((float) (finalPercentage - startPercentage)) / (float) MlimitYears;
 }
@@ -220,7 +220,7 @@ void MsimulateYear()
 {
     int daysInYear = 365;
     if(!Myears%4) //leap year
-        daysInYear = 366;
+       daysInYear = 366;
 
     MyearCF = 0;
 

@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include "modelib.h"
 #include "otherlib.h"
-
+#include <limits.h>
 
 
 int main() {
-    printf("Hello, World!\n");
+    printf("Hello, World! \n" );
+    printf("%lu\n", ULONG_MAX);
+    printf("%llu\n", ULLONG_MAX);
     /*
     int pole[] = {0,0,0,0,0};
     for (int i = 0; i < 10000; ++i) {

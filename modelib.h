@@ -25,7 +25,7 @@
 
 //percentage of really produced electricity of each source at the beginning of simulation
 #define INIT_PERCENTAGE_PRODUCE_COAL 46.8
-#define INIT_PERCENTAGE_PRODUCE_NUCLEAR 34
+#define INIT_PERCENTAGE_PRODUCE_NUCLEAR 34.0
 #define INIT_PERCENTAGE_PRODUCE_WIND 0.7
 #define INIT_PERCENTAGE_PRODUCE_HYDRO 1.9
 #define INIT_PERCENTAGE_PRODUCE_BIOMASS 5.5
@@ -62,14 +62,14 @@ double MdailyCF; //daily output of CF
 long MdailyProductionKWH; //how much energy needs to be produced in a day (kWH)
 long MyearlyProductionGWH; //how much energy was produced during the actual year (GWH)
 //what percentage of energy should generate each source at the end of simulation
-int MfinalPercentageProduceCoal;
-int MfinalPercentageProduceNuclear;
-int MfinalPercentageProduceWind;
-int MfinalPercentageProduceHydro;
-int MfinalPercentageProduceBiomass;
-int MfinalPercentageProduceSolar;
-int MfinalPercentageProduceGas;
-int MfinalPercentageProduceOther;
+float MfinalPercentageProduceCoal;
+float MfinalPercentageProduceNuclear;
+float MfinalPercentageProduceWind;
+float MfinalPercentageProduceHydro;
+float MfinalPercentageProduceBiomass;
+float MfinalPercentageProduceSolar;
+float MfinalPercentageProduceGas;
+float MfinalPercentageProduceOther;
 
 //actual percentage of energy produced by each source at the time
 float MactualPercentageProduceCoal;
@@ -141,7 +141,7 @@ double MgetSourceTypeBuildCF(enum MsourceTypes type, unsigned long installedPowe
  */
 long MrandomRange(long lower, long upper);
 
-float MgetYearlyChangePercentageProduce(int startPercentage, int finalPercentage);
+float MgetYearlyChangePercentageProduce(float startPercentage, float finalPercentage);
 
 void MsetYearlyChangePercentageProduces();
 

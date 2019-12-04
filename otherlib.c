@@ -141,7 +141,7 @@ void messageAndExit() {
 long pow10(unsigned int power) {
     long base = 10;
     long result = 1;
-    for (int i = 0; i < power; ++i) {
+    for (int i = 0; i < power; i++) {
         result *= base;
     }
     return result;
