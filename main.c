@@ -11,6 +11,8 @@ int main(int argc, char **argv)
 {
     char filename[FILENAME_MAX_LEN];
     parseArg(argc, argv, filename);
+	if(err)
+		messageAndExit();
 
     if(!MinitSimulation(filename))
         messageAndExit();

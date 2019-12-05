@@ -3,8 +3,8 @@ CFLAGS =-std=c11 -Wall
 
 all: simulator
 
-simulator: main.o otherlib.o modelib.o
-	$(CC) $(CFLAGS) -o simulator main.o otherlib.o modelib.o
+simulator: main.o otherlib.o modelib.o loglib.o
+	$(CC) $(CFLAGS) -o simulator main.o otherlib.o modelib.o loglib.o
 
 main.o: main.c
 	$(CC) $(CFLAGS) -c main.c 
@@ -16,7 +16,7 @@ modelib.o: modelib.c modelib.h otherlib.h loglib.h
 	$(CC) $(CFLAGS) -c modelib.c otherlib.h modelib.h loglib.h
 
 loglib.o: loglib.c loglib.h
-    $(CC) $(CFLAGS) -c loglib.c loglib.h
+	$(CC) $(CFLAGS) -c loglib.c loglib.h
 
 run: all
 	./simulator imsConf.txt

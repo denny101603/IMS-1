@@ -15,7 +15,6 @@ bool checkVars(long *vars);
 
 void parseConfiguration(char *filename)
 {
-    char flag[FLAG_MAX_LEN];
     int c;
     long values[NUMBER_OF_INPUT_FLAGS];
 
