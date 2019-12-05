@@ -72,7 +72,7 @@ void logYear(int verbosity)
     else
     {
         printf("------------------------\n");
-        printf("GHG [g CO2 eq.]: %lld\n", MyearCF);
+        printf("GHG [g CO2 eq.]*10**9: %lf\n", MyearCF/1000000000.);
         if(verbosity > 0)
         {
             printf("Production [GWh]: %ld\n",MyearlyProductionGWH);
@@ -94,7 +94,7 @@ void logTotal(int verbosity)
            "**************************************\n"
            "Total log\n"
            "----------------------\n");
-    printf("GHG [kg CO2 eq.]: %llu\n", MfinalCFkg);
+    printf("GHG [g CO2 eq.]*10**12: %lf\n", MfinalCFkg/1000000000.);
     printf("Daily production [kWh] %ld\n", MdailyProductionKWH);
     if(verbosity > 0)
     {
