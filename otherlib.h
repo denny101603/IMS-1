@@ -18,8 +18,15 @@ int err;
 #define NUMBER_OF_INPUT_FLAGS 11 //number of tags in config file
 #define FLAG_MAX_LEN 32 //maximum length of input tag in file
 #define VALUE_MAX_LEN 32 //maximum length of input value in file
+#define FILENAME_MAX_LEN 100
 
-#define CONF_FILE_NAME "imsConf.txt"
+/**
+ * Returns name of conf file or null if the args are incorrect
+ * @param argc
+ * @param argv
+ * @return
+ */
+void parseArg(int argc, char **argv, char *filename);
 
 /**
  * parses, checks and sets all variables initialized by config file
@@ -42,7 +49,7 @@ long parseValue(FILE *fd);
 void setVarNamesFromConfFile(const long *values);
 
 enum errors{
-    errFileOpen = 1, errFileFormat, errSum100
+    errFileOpen = 1, errFileFormat, errSum100, errArgs
 };
 
 void messageAndExit();

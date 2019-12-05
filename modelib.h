@@ -151,7 +151,7 @@ void MsetYearlyChangePercentageProduces();
  * inits all variables for start of simulation, also reads from config file
  * @return true on success
  */
-bool MinitSimulation();
+bool MinitSimulation(char *filename);
 
 /**
  * performs the simulation
