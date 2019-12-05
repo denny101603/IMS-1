@@ -21,5 +21,6 @@ loglib.o: loglib.c loglib.h
 run: all
 	./simulator
 
+
 clean:
 	rm -f *.o *.h.gch simulator
