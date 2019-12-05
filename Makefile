@@ -32,6 +32,7 @@ exp2: all
 		./simulator exp2a.txt >exp2a.out
 		./simulator exp2b.txt >exp2b.out
 		./simulator exp2c.txt >exp2c.out
+		./simulator exp2d.txt >exp2d.out
 
 clean:
 	rm -f *.o *.h.gch simulator
