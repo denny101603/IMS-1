@@ -7,14 +7,18 @@
 #include "modelib.h"
 #include "otherlib.h"
 
+int main(int argc, char **argv)
+{
+    char filename[FILENAME_MAX_LEN];
+    parseArg(argc, argv, filename);
 
-int main() {
-    if(!MinitSimulation())
+    if(!MinitSimulation(filename))
         messageAndExit();
 
     MstartSimulation();
     return 0;
 }
+
 
 
 

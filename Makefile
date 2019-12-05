@@ -19,7 +19,7 @@ loglib.o: loglib.c loglib.h
     $(CC) $(CFLAGS) -c loglib.c loglib.h
 
 run: all
-	./simulator
+	./simulator imsConf.txt
 
 
 clean:

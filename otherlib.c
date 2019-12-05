@@ -139,6 +139,9 @@ void messageAndExit() {
         case errSum100:
             fprintf(stderr, "Sum of final ratio of sources is not 100 %%! Please check imsConf.txt.\n");
             break;
+            case errArgs:
+            fprintf(stderr, "Wrong number of program arguments! There is just one argument - name of config file.\n");
+            break;
         default:
             fprintf(stderr, "Unspecified error!\n");
             break;
@@ -157,29 +160,14 @@ long Mpow10(unsigned int power)
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void parseArg(int argc, char **argv, char *filename) {
+    if(argc != 2)
+    {
+        err = errArgs;
+        return;
+    }
+    strncpy(filename, argv[1], FILENAME_MAX_LEN-1);
+}
 
 
 

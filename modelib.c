@@ -112,10 +112,10 @@ void MsetYearlyChangePercentageProduces()
     MyearlyChangePercentageProduceOther = MgetYearlyChangePercentageProduce(INIT_PERCENTAGE_PRODUCE_OTHER, MfinalPercentageProduceOther);
 }
 
-bool MinitSimulation()
+bool MinitSimulation(char *filename)
 {
     err = 0;
-    parseConfiguration(CONF_FILE_NAME);
+    parseConfiguration(filename);
     if(err)
         return false;
 
