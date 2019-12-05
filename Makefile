@@ -21,6 +21,17 @@ loglib.o: loglib.c loglib.h
 run: all
 	./simulator imsConf.txt
 
+exp1: all
+		./simulator exp1a.txt >exp1a.out
+		./simulator exp1b.txt >exp1b.out
+		./simulator exp1c.txt >exp1c.out
+		./simulator exp1d.txt >exp1d.out
+		./simulator exp1e.txt >exp1e.out
+
+exp2: all
+		./simulator exp2a.txt >exp2a.out
+		./simulator exp2b.txt >exp2b.out
+		./simulator exp2c.txt >exp2c.out
 
 clean:
 	rm -f *.o *.h.gch simulator
