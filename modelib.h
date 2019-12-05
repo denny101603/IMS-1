@@ -10,7 +10,7 @@
 #define INIT_DAILY_PRODUCE_KWH 241101370 //daily production of electricity in kWh at the beginning of simulation
 
 //viz tabulka 3 (hodnoty zde deleny 365)
-#define DAILY_INCREASE_PRODUCE_KWH_CONSERVATIVE 4217.8082 //daily increase of electricity consumption
+#define DAILY_INCREASE_PRODUCE_KWH_CONSERVATIVE 4218 //4217.8082 //daily increase of electricity consumption //todo predelat na cele cislo
 #define DAILY_INCREASE_PRODUCE_KWH_DYNAMIC 2848000 //daily increase of electricity consumption
 
 //installed power of each type in kW at the beginning of simulation
@@ -47,8 +47,8 @@
 int Mverbose; //todo denny parsovat verbose a logovaci frekvenci z vstupniho souboru - frekvenci budes asi pouzivat ty, takze si ji uprav podle sveho :)
 typedef enum{
     daily, yearly, total
-}Mfrequence;
-Mfrequence MlogFrequence;
+}Mfrequency;
+Mfrequency MlogFrequency;
 
 
 int Mdays; //days of simulation passed
@@ -102,7 +102,7 @@ unsigned long MactualInstalledPowerKWGas;
 unsigned long MactualInstalledPowerKWOther;
 
 //real produced power/installed power ratio (number 0 to 1)
-float MutilizationRatioCoal;
+float MutilizationRatioCoal; //todo berry přejměnování na "utilization factor" - je to terminus technikus
 float MutilizationRatioNuclear;
 float MutilizationRatioWind;
 float MutilizationRatioHydro;
@@ -151,6 +151,9 @@ void MsetYearlyChangePercentageProduces();
  */
 bool MinitSimulation();
 
+/**
+ * performs the simulation
+ */
 void MstartSimulation();
 
 /**
@@ -168,7 +171,11 @@ void MsimulateDay();
  */
 void MupdateProductionRatio();
 
-unsigned long long McorrectInstalledPower();
+/**
+ * returns cf of building new power plants, updates actual installed power according to percentage of each source and its utilization factor
+ * @return
+ */
+unsigned long long McorrectInstalledPowerAll();
 
 /**
  * returns necessary installed power to produce daily amount of energy (kWH)
@@ -183,5 +190,11 @@ unsigned long MgetNecessaryInstalledPowerKW(enum MsourceTypes type);
  * @return
  */
 double MgetActualDailyProductionBySource(float actualSourcePercentage);
+
+/**
+ * returns cf of yearly renewing power plants (every year is again "build" 1/lifespan of each power source)
+ * @return
+ */
+unsigned long long MrenewPowerPlantsAll();
 
 #endif //IMS_MODELIB_H

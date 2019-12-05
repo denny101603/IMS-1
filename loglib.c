@@ -10,7 +10,7 @@
 
 void logDay(int verbosity)
 {
-    if(MlogFrequence > daily) return;
+    if(MlogFrequency > daily) return;
     printf("======================\n"
            "Daily log #%d\n"
            "----------------------\n",Mdays);
@@ -28,7 +28,7 @@ void logDay(int verbosity)
 
 void logYear(int verbosity)
 {
-    if(MlogFrequence > yearly) return;
+    if(MlogFrequency > yearly) return;
     printf("######################\n"
            "Yearly log #%d\n"
            "----------------------\n", Myears);

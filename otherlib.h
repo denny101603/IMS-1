@@ -13,8 +13,8 @@
 
 int err;
 
-#define NUMBER_OF_INPUT_TAGS 9 //number of tags in config file
-#define TAG_MAX_LEN 32 //maximum length of input tag in file
+#define NUMBER_OF_INPUT_FLAGS 11 //number of tags in config file
+#define FLAG_MAX_LEN 32 //maximum length of input tag in file
 #define VALUE_MAX_LEN 32 //maximum length of input value in file
 
 #define CONF_FILE_NAME "imsConf.txt"
@@ -50,7 +50,7 @@ void messageAndExit();
  * @param power
  * @return
  */
-long pow10(unsigned int power);
+long Mpow10(unsigned int power);
 
 
 #endif //IMS_OTHERLIB_H
