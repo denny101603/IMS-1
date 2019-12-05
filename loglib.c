@@ -32,40 +32,58 @@ void logDay(int verbosity)
 void logYear(int verbosity)
 {
     if(MlogFrequency > yearly) return;
-    printf("######################\n"
-           "Yearly log #%d\n"
-           "----------------------\n", Myears);
-    printf("GHG [g CO2 eq.]: %lld\n", MyearCF);
-    if(verbosity > 0)
+    static int flag = 1;
+
+    if(flag)
     {
-        printf("Production [GWh]: %ld\n",MyearlyProductionGWH);
-        printf("Percentage of each power plant type:\n"
-               "*Coal:      %f %%\n"
-               "*Nuclear:   %f %%\n"
-               "*Wind:      %f %%\n"
-               "*Hydro:     %f %%\n"
-               "*Biomass:   %f %%\n"
-               "*Solar:     %f %%\n"
-               "*Gas:       %f %%\n"
-               "*Other:     %f %%\n",
-               MactualPercentageProduceCoal, MactualPercentageProduceNuclear, MactualPercentageProduceWind,MactualPercentageProduceHydro,
-               MactualPercentageProduceBiomass, MactualPercentageProduceSolar, MactualPercentageProduceGas, MactualPercentageProduceOther);
-        if(verbosity > 1)
+        printf("####################################################\n"
+               "Yearly log #%d\n"
+               "----------------------\n", Myears);
+        if(verbosity>0)
         {
-            printf("Installed power of each power plant type:\n"
-                   "*Coal:      %lu kW\n"
-                   "*Nuclear:   %lu kW\n"
-                   "*Wind:      %lu kW\n"
-                   "*Hydro:     %lu kW\n"
-                   "*Biomass:   %lu kW\n"
-                   "*Solar:     %lu kW\n"
-                   "*Gas:       %lu kW\n"
-                   "*Other:     %lu kW\n",
-                   MactualInstalledPowerKWCoal, MactualInstalledPowerKWNuclear, MactualInstalledPowerKWWind,MactualInstalledPowerKWHydro,
-                   MactualInstalledPowerKWBiomass, MactualInstalledPowerKWSolar, MactualInstalledPowerKWGas, MactualInstalledPowerKWOther);
+            printf("Percentage of each power plant type:\n"
+                   "*Coal:      %f %%\n"
+                   "*Nuclear:   %f %%\n"
+                   "*Wind:      %f %%\n"
+                   "*Hydro:     %f %%\n"
+                   "*Biomass:   %f %%\n"
+                   "*Solar:     %f %%\n"
+                   "*Gas:       %f %%\n"
+                   "*Other:     %f %%\n",
+                   MactualPercentageProduceCoal, MactualPercentageProduceNuclear, MactualPercentageProduceWind,MactualPercentageProduceHydro,
+                   MactualPercentageProduceBiomass, MactualPercentageProduceSolar, MactualPercentageProduceGas, MactualPercentageProduceOther);
+            if(verbosity > 1)
+            {
+                printf("Installed power of each power plant type:\n"
+                       "*Coal:      %lu kW\n"
+                       "*Nuclear:   %lu kW\n"
+                       "*Wind:      %lu kW\n"
+                       "*Hydro:     %lu kW\n"
+                       "*Biomass:   %lu kW\n"
+                       "*Solar:     %lu kW\n"
+                       "*Gas:       %lu kW\n"
+                       "*Other:     %lu kW\n",
+                       MactualInstalledPowerKWCoal, MactualInstalledPowerKWNuclear, MactualInstalledPowerKWWind,MactualInstalledPowerKWHydro,
+                       MactualInstalledPowerKWBiomass, MactualInstalledPowerKWSolar, MactualInstalledPowerKWGas, MactualInstalledPowerKWOther);
+            }
         }
+        flag = 0;
     }
-    printf("######################\n");
+    else
+    {
+        printf("------------------------\n");
+        printf("GHG [g CO2 eq.]: %lld\n", MyearCF);
+        if(verbosity > 0)
+        {
+            printf("Production [GWh]: %ld\n",MyearlyProductionGWH);
+            if(verbosity > 1)
+            {
+
+            }
+        }
+        flag = 1;
+    }
+
 
 }
 
