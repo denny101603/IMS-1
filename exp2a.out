@@ -1,0 +1,820 @@
+####################################################
+Yearly log #0
+----------------------
+Percentage of each power plant type:
+*Coal:      46.799999 %
+*Nuclear:   34.000000 %
+*Wind:      0.700000 %
+*Hydro:     1.900000 %
+*Biomass:   5.500000 %
+*Solar:     2.700000 %
+*Gas:       7.100000 %
+*Other:     1.300000 %
+Installed power of each power plant type:
+*Coal:      9130000 kW
+*Nuclear:   4290000 kW
+*Wind:      277000 kW
+*Hydro:     1090000 kW
+*Biomass:   950000 kW
+*Solar:     2030000 kW
+*Gas:       1610000 kW
+*Other:     700000 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 43843.971724
+Production [GWh]: 88358
+####################################################
+Yearly log #1
+----------------------
+Percentage of each power plant type:
+*Coal:      45.337498 %
+*Nuclear:   34.250000 %
+*Wind:      0.834375 %
+*Hydro:     1.996875 %
+*Biomass:   5.640625 %
+*Solar:     3.521875 %
+*Gas:       7.096875 %
+*Other:     1.321875 %
+Installed power of each power plant type:
+*Coal:      8901320 kW
+*Nuclear:   5757153 kW
+*Wind:      332288 kW
+*Hydro:     1152910 kW
+*Biomass:   980528 kW
+*Solar:     2664883 kW
+*Gas:       1619595 kW
+*Other:     716336 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 42949.208250
+Production [GWh]: 88653
+####################################################
+Yearly log #2
+----------------------
+Percentage of each power plant type:
+*Coal:      43.874996 %
+*Nuclear:   34.500000 %
+*Wind:      0.968750 %
+*Hydro:     2.093750 %
+*Biomass:   5.781250 %
+*Solar:     4.343750 %
+*Gas:       7.093750 %
+*Other:     1.343750 %
+Installed power of each power plant type:
+*Coal:      8668837 kW
+*Nuclear:   5606789 kW
+*Wind:      388250 kW
+*Hydro:     1216512 kW
+*Biomass:   1011350 kW
+*Solar:     3307622 kW
+*Gas:       1629154 kW
+*Other:     732810 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 41887.049699
+Production [GWh]: 89231
+####################################################
+Yearly log #3
+----------------------
+Percentage of each power plant type:
+*Coal:      42.412495 %
+*Nuclear:   34.750000 %
+*Wind:      1.103125 %
+*Hydro:     2.190625 %
+*Biomass:   5.921875 %
+*Solar:     5.165625 %
+*Gas:       7.090624 %
+*Other:     1.365625 %
+Installed power of each power plant type:
+*Coal:      8432711 kW
+*Nuclear:   5454069 kW
+*Wind:      444892 kW
+*Hydro:     1280823 kW
+*Biomass:   1042482 kW
+*Solar:     3958253 kW
+*Gas:       1638703 kW
+*Other:     749436 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 40518.182375
+Production [GWh]: 89786
+####################################################
+Yearly log #4
+----------------------
+Percentage of each power plant type:
+*Coal:      40.949993 %
+*Nuclear:   35.000000 %
+*Wind:      1.237500 %
+*Hydro:     2.287500 %
+*Biomass:   6.062500 %
+*Solar:     5.987500 %
+*Gas:       7.087499 %
+*Other:     1.387500 %
+Installed power of each power plant type:
+*Coal:      8192939 kW
+*Nuclear:   5298991 kW
+*Wind:      502212 kW
+*Hydro:     1345844 kW
+*Biomass:   1073924 kW
+*Solar:     4616776 kW
+*Gas:       1648244 kW
+*Other:     766211 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 39864.882531
+Production [GWh]: 90345
+####################################################
+Yearly log #5
+----------------------
+Percentage of each power plant type:
+*Coal:      39.487492 %
+*Nuclear:   35.250000 %
+*Wind:      1.371875 %
+*Hydro:     2.384375 %
+*Biomass:   6.203125 %
+*Solar:     6.809375 %
+*Gas:       7.084374 %
+*Other:     1.409375 %
+Installed power of each power plant type:
+*Coal:      7949525 kW
+*Nuclear:   5141556 kW
+*Wind:      560212 kW
+*Hydro:     1411575 kW
+*Biomass:   1105676 kW
+*Solar:     5283190 kW
+*Gas:       1657775 kW
+*Other:     783137 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 38843.429880
+Production [GWh]: 90919
+####################################################
+Yearly log #6
+----------------------
+Percentage of each power plant type:
+*Coal:      38.024990 %
+*Nuclear:   35.500000 %
+*Wind:      1.506250 %
+*Hydro:     2.481250 %
+*Biomass:   6.343750 %
+*Solar:     7.631250 %
+*Gas:       7.081249 %
+*Other:     1.431250 %
+Installed power of each power plant type:
+*Coal:      7702467 kW
+*Nuclear:   4981765 kW
+*Wind:      618891 kW
+*Hydro:     1478016 kW
+*Biomass:   1137739 kW
+*Solar:     5957496 kW
+*Gas:       1667297 kW
+*Other:     800213 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 38187.603484
+Production [GWh]: 91459
+####################################################
+Yearly log #7
+----------------------
+Percentage of each power plant type:
+*Coal:      36.562489 %
+*Nuclear:   35.750000 %
+*Wind:      1.640625 %
+*Hydro:     2.578125 %
+*Biomass:   6.484375 %
+*Solar:     8.453125 %
+*Gas:       7.078124 %
+*Other:     1.453125 %
+Installed power of each power plant type:
+*Coal:      7451764 kW
+*Nuclear:   4819617 kW
+*Wind:      678249 kW
+*Hydro:     1545166 kW
+*Biomass:   1170112 kW
+*Solar:     6639693 kW
+*Gas:       1676810 kW
+*Other:     817440 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 36943.566166
+Production [GWh]: 92052
+####################################################
+Yearly log #8
+----------------------
+Percentage of each power plant type:
+*Coal:      35.099987 %
+*Nuclear:   36.000000 %
+*Wind:      1.775000 %
+*Hydro:     2.675000 %
+*Biomass:   6.625000 %
+*Solar:     9.275000 %
+*Gas:       7.074998 %
+*Other:     1.475000 %
+Installed power of each power plant type:
+*Coal:      7197419 kW
+*Nuclear:   4655113 kW
+*Wind:      738286 kW
+*Hydro:     1613026 kW
+*Biomass:   1202795 kW
+*Solar:     7329782 kW
+*Gas:       1686315 kW
+*Other:     834817 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 35326.759404
+Production [GWh]: 92573
+####################################################
+Yearly log #9
+----------------------
+Percentage of each power plant type:
+*Coal:      33.637486 %
+*Nuclear:   36.250000 %
+*Wind:      1.909375 %
+*Hydro:     2.771875 %
+*Biomass:   6.765625 %
+*Solar:     10.096874 %
+*Gas:       7.071873 %
+*Other:     1.496875 %
+Installed power of each power plant type:
+*Coal:      6939429 kW
+*Nuclear:   4488251 kW
+*Wind:      799002 kW
+*Hydro:     1681596 kW
+*Biomass:   1235788 kW
+*Solar:     8027762 kW
+*Gas:       1695810 kW
+*Other:     852345 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 34767.595761
+Production [GWh]: 93183
+####################################################
+Yearly log #10
+----------------------
+Percentage of each power plant type:
+*Coal:      32.174984 %
+*Nuclear:   36.500000 %
+*Wind:      2.043750 %
+*Hydro:     2.868750 %
+*Biomass:   6.906250 %
+*Solar:     10.918749 %
+*Gas:       7.068748 %
+*Other:     1.518750 %
+Installed power of each power plant type:
+*Coal:      6677796 kW
+*Nuclear:   4319033 kW
+*Wind:      860397 kW
+*Hydro:     1750875 kW
+*Biomass:   1269091 kW
+*Solar:     8733634 kW
+*Gas:       1705296 kW
+*Other:     870023 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 33276.559542
+Production [GWh]: 93695
+####################################################
+Yearly log #11
+----------------------
+Percentage of each power plant type:
+*Coal:      30.712484 %
+*Nuclear:   36.750000 %
+*Wind:      2.178125 %
+*Hydro:     2.965625 %
+*Biomass:   7.046875 %
+*Solar:     11.740623 %
+*Gas:       7.065623 %
+*Other:     1.540625 %
+Installed power of each power plant type:
+*Coal:      6412519 kW
+*Nuclear:   4147459 kW
+*Wind:      922472 kW
+*Hydro:     1820865 kW
+*Biomass:   1302705 kW
+*Solar:     9447399 kW
+*Gas:       1714773 kW
+*Other:     887851 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 32286.778452
+Production [GWh]: 94307
+####################################################
+Yearly log #12
+----------------------
+Percentage of each power plant type:
+*Coal:      29.249985 %
+*Nuclear:   37.000000 %
+*Wind:      2.312500 %
+*Hydro:     3.062500 %
+*Biomass:   7.187500 %
+*Solar:     12.562498 %
+*Gas:       7.062498 %
+*Other:     1.562500 %
+Installed power of each power plant type:
+*Coal:      6143599 kW
+*Nuclear:   3973528 kW
+*Wind:      985225 kW
+*Hydro:     1891564 kW
+*Biomass:   1336629 kW
+*Solar:     10169055 kW
+*Gas:       1724241 kW
+*Other:     905830 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 31326.280470
+Production [GWh]: 94828
+####################################################
+Yearly log #13
+----------------------
+Percentage of each power plant type:
+*Coal:      27.787485 %
+*Nuclear:   37.250000 %
+*Wind:      2.446875 %
+*Hydro:     3.159374 %
+*Biomass:   7.328125 %
+*Solar:     13.384373 %
+*Gas:       7.059372 %
+*Other:     1.584375 %
+Installed power of each power plant type:
+*Coal:      5871034 kW
+*Nuclear:   3797239 kW
+*Wind:      1048658 kW
+*Hydro:     1962973 kW
+*Biomass:   1370863 kW
+*Solar:     10898601 kW
+*Gas:       1733700 kW
+*Other:     923960 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 29860.104715
+Production [GWh]: 95421
+####################################################
+Yearly log #14
+----------------------
+Percentage of each power plant type:
+*Coal:      26.324986 %
+*Nuclear:   37.500000 %
+*Wind:      2.581250 %
+*Hydro:     3.256249 %
+*Biomass:   7.468750 %
+*Solar:     14.206247 %
+*Gas:       7.056247 %
+*Other:     1.606250 %
+Installed power of each power plant type:
+*Coal:      5594826 kW
+*Nuclear:   3618595 kW
+*Wind:      1112769 kW
+*Hydro:     2035092 kW
+*Biomass:   1405407 kW
+*Solar:     11636040 kW
+*Gas:       1743150 kW
+*Other:     942239 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 28605.389609
+Production [GWh]: 95961
+####################################################
+Yearly log #15
+----------------------
+Percentage of each power plant type:
+*Coal:      24.862486 %
+*Nuclear:   37.750000 %
+*Wind:      2.715625 %
+*Hydro:     3.353124 %
+*Biomass:   7.609375 %
+*Solar:     15.028122 %
+*Gas:       7.053122 %
+*Other:     1.628125 %
+Installed power of each power plant type:
+*Coal:      5314974 kW
+*Nuclear:   3437594 kW
+*Wind:      1177560 kW
+*Hydro:     2107920 kW
+*Biomass:   1440262 kW
+*Solar:     12381371 kW
+*Gas:       1752591 kW
+*Other:     960669 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 27644.549735
+Production [GWh]: 96535
+####################################################
+Yearly log #16
+----------------------
+Percentage of each power plant type:
+*Coal:      23.399986 %
+*Nuclear:   38.000000 %
+*Wind:      2.850000 %
+*Hydro:     3.449999 %
+*Biomass:   7.750000 %
+*Solar:     15.849997 %
+*Gas:       7.049997 %
+*Other:     1.650000 %
+Installed power of each power plant type:
+*Coal:      5031479 kW
+*Nuclear:   3254236 kW
+*Wind:      1243030 kW
+*Hydro:     2181458 kW
+*Biomass:   1475427 kW
+*Solar:     13134592 kW
+*Gas:       1762023 kW
+*Other:     979250 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 26578.861663
+Production [GWh]: 97093
+####################################################
+Yearly log #17
+----------------------
+Percentage of each power plant type:
+*Coal:      21.937487 %
+*Nuclear:   38.250000 %
+*Wind:      2.984375 %
+*Hydro:     3.546874 %
+*Biomass:   7.890625 %
+*Solar:     16.671871 %
+*Gas:       7.046872 %
+*Other:     1.671875 %
+Installed power of each power plant type:
+*Coal:      4744339 kW
+*Nuclear:   3068521 kW
+*Wind:      1309179 kW
+*Hydro:     2255706 kW
+*Biomass:   1510901 kW
+*Solar:     13895704 kW
+*Gas:       1771445 kW
+*Other:     997981 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 25471.868243
+Production [GWh]: 97648
+####################################################
+Yearly log #18
+----------------------
+Percentage of each power plant type:
+*Coal:      20.474987 %
+*Nuclear:   38.500000 %
+*Wind:      3.118751 %
+*Hydro:     3.643749 %
+*Biomass:   8.031250 %
+*Solar:     17.493746 %
+*Gas:       7.043746 %
+*Other:     1.693750 %
+Installed power of each power plant type:
+*Coal:      4453557 kW
+*Nuclear:   2880450 kW
+*Wind:      1376007 kW
+*Hydro:     2330664 kW
+*Biomass:   1546687 kW
+*Solar:     14664711 kW
+*Gas:       1780859 kW
+*Other:     1016863 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 24064.026762
+Production [GWh]: 98225
+####################################################
+Yearly log #19
+----------------------
+Percentage of each power plant type:
+*Coal:      19.012487 %
+*Nuclear:   38.750000 %
+*Wind:      3.253126 %
+*Hydro:     3.740624 %
+*Biomass:   8.171875 %
+*Solar:     18.315620 %
+*Gas:       7.040621 %
+*Other:     1.715625 %
+Installed power of each power plant type:
+*Coal:      4159130 kW
+*Nuclear:   2690022 kW
+*Wind:      1443514 kW
+*Hydro:     2406332 kW
+*Biomass:   1582782 kW
+*Solar:     15441608 kW
+*Gas:       1790264 kW
+*Other:     1035895 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 22874.708093
+Production [GWh]: 98762
+####################################################
+Yearly log #20
+----------------------
+Percentage of each power plant type:
+*Coal:      17.549988 %
+*Nuclear:   39.000000 %
+*Wind:      3.387501 %
+*Hydro:     3.837499 %
+*Biomass:   8.312500 %
+*Solar:     19.137495 %
+*Gas:       7.037496 %
+*Other:     1.737500 %
+Installed power of each power plant type:
+*Coal:      3861059 kW
+*Nuclear:   2497237 kW
+*Wind:      1511700 kW
+*Hydro:     2482709 kW
+*Biomass:   1619188 kW
+*Solar:     16226398 kW
+*Gas:       1799659 kW
+*Other:     1055077 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 21898.543647
+Production [GWh]: 99358
+####################################################
+Yearly log #21
+----------------------
+Percentage of each power plant type:
+*Coal:      16.087488 %
+*Nuclear:   39.250000 %
+*Wind:      3.521876 %
+*Hydro:     3.934374 %
+*Biomass:   8.453125 %
+*Solar:     19.959370 %
+*Gas:       7.034371 %
+*Other:     1.759375 %
+Installed power of each power plant type:
+*Coal:      3559344 kW
+*Nuclear:   2302096 kW
+*Wind:      1580566 kW
+*Hydro:     2559796 kW
+*Biomass:   1655903 kW
+*Solar:     17019076 kW
+*Gas:       1809046 kW
+*Other:     1074410 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 20769.709293
+Production [GWh]: 99876
+####################################################
+Yearly log #22
+----------------------
+Percentage of each power plant type:
+*Coal:      14.624989 %
+*Nuclear:   39.500000 %
+*Wind:      3.656251 %
+*Hydro:     4.031249 %
+*Biomass:   8.593750 %
+*Solar:     20.781244 %
+*Gas:       7.031246 %
+*Other:     1.781250 %
+Installed power of each power plant type:
+*Coal:      3253986 kW
+*Nuclear:   2104598 kW
+*Wind:      1650110 kW
+*Hydro:     2637593 kW
+*Biomass:   1692929 kW
+*Solar:     17819650 kW
+*Gas:       1818423 kW
+*Other:     1093893 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 19007.684069
+Production [GWh]: 100491
+####################################################
+Yearly log #23
+----------------------
+Percentage of each power plant type:
+*Coal:      13.162489 %
+*Nuclear:   39.750000 %
+*Wind:      3.790626 %
+*Hydro:     4.128124 %
+*Biomass:   8.734375 %
+*Solar:     21.603119 %
+*Gas:       7.028121 %
+*Other:     1.803126 %
+Installed power of each power plant type:
+*Coal:      2944984 kW
+*Nuclear:   1904743 kW
+*Wind:      1720333 kW
+*Hydro:     2716099 kW
+*Biomass:   1730266 kW
+*Solar:     18628112 kW
+*Gas:       1827792 kW
+*Other:     1113527 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 18096.878383
+Production [GWh]: 101003
+####################################################
+Yearly log #24
+----------------------
+Percentage of each power plant type:
+*Coal:      11.699989 %
+*Nuclear:   40.000000 %
+*Wind:      3.925001 %
+*Hydro:     4.224999 %
+*Biomass:   8.875000 %
+*Solar:     22.424994 %
+*Gas:       7.024995 %
+*Other:     1.825001 %
+Installed power of each power plant type:
+*Coal:      2632339 kW
+*Nuclear:   1702532 kW
+*Wind:      1791236 kW
+*Hydro:     2795316 kW
+*Biomass:   1767912 kW
+*Solar:     19444466 kW
+*Gas:       1837151 kW
+*Other:     1133311 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 16826.750027
+Production [GWh]: 101611
+####################################################
+Yearly log #25
+----------------------
+Percentage of each power plant type:
+*Coal:      10.237490 %
+*Nuclear:   40.250000 %
+*Wind:      4.059376 %
+*Hydro:     4.321875 %
+*Biomass:   9.015625 %
+*Solar:     23.246868 %
+*Gas:       7.021870 %
+*Other:     1.846876 %
+Installed power of each power plant type:
+*Coal:      2316049 kW
+*Nuclear:   1497963 kW
+*Wind:      1862818 kW
+*Hydro:     2875242 kW
+*Biomass:   1805868 kW
+*Solar:     20268714 kW
+*Gas:       1846501 kW
+*Other:     1153245 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 15125.753906
+Production [GWh]: 102134
+####################################################
+Yearly log #26
+----------------------
+Percentage of each power plant type:
+*Coal:      8.774990 %
+*Nuclear:   40.500000 %
+*Wind:      4.193751 %
+*Hydro:     4.418750 %
+*Biomass:   9.156250 %
+*Solar:     24.068743 %
+*Gas:       7.018745 %
+*Other:     1.868751 %
+Installed power of each power plant type:
+*Coal:      1996116 kW
+*Nuclear:   1291038 kW
+*Wind:      1935079 kW
+*Hydro:     2955878 kW
+*Biomass:   1844135 kW
+*Solar:     21100854 kW
+*Gas:       1855843 kW
+*Other:     1173330 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 14315.821917
+Production [GWh]: 102724
+####################################################
+Yearly log #27
+----------------------
+Percentage of each power plant type:
+*Coal:      7.312490 %
+*Nuclear:   40.750000 %
+*Wind:      4.328126 %
+*Hydro:     4.515625 %
+*Biomass:   9.296875 %
+*Solar:     24.890617 %
+*Gas:       7.015620 %
+*Other:     1.890626 %
+Installed power of each power plant type:
+*Coal:      1672539 kW
+*Nuclear:   1081757 kW
+*Wind:      2008018 kW
+*Hydro:     3037224 kW
+*Biomass:   1882712 kW
+*Solar:     21940884 kW
+*Gas:       1865175 kW
+*Other:     1193565 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 12868.514385
+Production [GWh]: 103267
+####################################################
+Yearly log #28
+----------------------
+Percentage of each power plant type:
+*Coal:      5.849990 %
+*Nuclear:   41.000000 %
+*Wind:      4.462502 %
+*Hydro:     4.612500 %
+*Biomass:   9.437500 %
+*Solar:     25.712492 %
+*Gas:       7.012495 %
+*Other:     1.912501 %
+Installed power of each power plant type:
+*Coal:      1345318 kW
+*Nuclear:   870118 kW
+*Wind:      2081638 kW
+*Hydro:     3119280 kW
+*Biomass:   1921599 kW
+*Solar:     22788806 kW
+*Gas:       1874498 kW
+*Other:     1213951 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 11375.584600
+Production [GWh]: 103838
+####################################################
+Yearly log #29
+----------------------
+Percentage of each power plant type:
+*Coal:      4.387490 %
+*Nuclear:   41.250000 %
+*Wind:      4.596877 %
+*Hydro:     4.709375 %
+*Biomass:   9.578125 %
+*Solar:     26.534367 %
+*Gas:       7.009369 %
+*Other:     1.934376 %
+Installed power of each power plant type:
+*Coal:      1014453 kW
+*Nuclear:   656123 kW
+*Wind:      2155936 kW
+*Hydro:     3202045 kW
+*Biomass:   1960797 kW
+*Solar:     23644618 kW
+*Gas:       1883812 kW
+*Other:     1234487 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 10262.434406
+Production [GWh]: 104400
+####################################################
+Yearly log #30
+----------------------
+Percentage of each power plant type:
+*Coal:      2.924990 %
+*Nuclear:   41.500000 %
+*Wind:      4.731252 %
+*Hydro:     4.806251 %
+*Biomass:   9.718750 %
+*Solar:     27.356241 %
+*Gas:       7.006244 %
+*Other:     1.956251 %
+Installed power of each power plant type:
+*Coal:      679945 kW
+*Nuclear:   439772 kW
+*Wind:      2230913 kW
+*Hydro:     3285520 kW
+*Biomass:   2000304 kW
+*Solar:     24508322 kW
+*Gas:       1893117 kW
+*Other:     1255174 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 8701.655175
+Production [GWh]: 104952
+####################################################
+Yearly log #31
+----------------------
+Percentage of each power plant type:
+*Coal:      1.462490 %
+*Nuclear:   41.750000 %
+*Wind:      4.865627 %
+*Hydro:     4.903126 %
+*Biomass:   9.859375 %
+*Solar:     28.178116 %
+*Gas:       7.003119 %
+*Other:     1.978126 %
+Installed power of each power plant type:
+*Coal:      341793 kW
+*Nuclear:   221063 kW
+*Wind:      2306569 kW
+*Hydro:     3369705 kW
+*Biomass:   2040122 kW
+*Solar:     25379920 kW
+*Gas:       1902414 kW
+*Other:     1276011 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 7181.055466
+Production [GWh]: 105533
+####################################################
+Yearly log #32
+----------------------
+Percentage of each power plant type:
+*Coal:      0.000000 %
+*Nuclear:   42.000000 %
+*Wind:      5.000002 %
+*Hydro:     5.000001 %
+*Biomass:   10.000000 %
+*Solar:     28.999990 %
+*Gas:       6.999994 %
+*Other:     2.000001 %
+Installed power of each power plant type:
+*Coal:      0 kW
+*Nuclear:   0 kW
+*Wind:      2382904 kW
+*Hydro:     3454599 kW
+*Biomass:   2080250 kW
+*Solar:     26259408 kW
+*Gas:       1911701 kW
+*Other:     1296999 kW
+------------------------
+GHG [g CO2 eq.]*10**9: 4914.365503
+Production [GWh]: 106066
+**************************************
+**************************************
+Total log
+----------------------
+GHG [g CO2 eq.]*10**12: 851.551762
+Daily production [kWh] 291911398
+Years: 32
+Percentage of each power plant type:
+*Coal:      0.000000 %
+*Nuclear:   42.000000 %
+*Wind:      5.000002 %
+*Hydro:     5.000001 %
+*Biomass:   10.000000 %
+*Solar:     28.999990 %
+*Gas:       6.999994 %
+*Other:     2.000001 %
+------------------------
+Installed power of each power plant type:
+*Coal:      0 kW
+*Nuclear:   0 kW
+*Wind:      2382904 kW
+*Hydro:     3454599 kW
+*Biomass:   2080250 kW
+*Solar:     26259408 kW
+*Gas:       1911701 kW
+*Other:     1296999 kW
+**************************************
+**************************************
