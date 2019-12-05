@@ -1,6 +1,8 @@
-//
-// Created by daniel on 11/29/19.
-//
+/**
+ * @authors Daniel Bubenicek (xbuben05) - kod, Jan Beran (xberan43) - inicializacni data
+ * Projekt do predmetu IMS na FIT VUT v Brne (2019/2020)
+ * @date 5.12.2019
+ */
 
 #ifndef IMS_MODELIB_H
 #define IMS_MODELIB_H
@@ -9,9 +11,9 @@
 
 #define INIT_DAILY_PRODUCE_KWH 241101370 //daily production of electricity in kWh at the beginning of simulation
 
-//viz tabulka 3 (hodnoty zde deleny 365)
-#define DAILY_INCREASE_PRODUCE_KWH_CONSERVATIVE 4218 //4217.8082 //daily increase of electricity consumption //todo predelat na cele cislo
-#define DAILY_INCREASE_PRODUCE_KWH_DYNAMIC 2848000 //daily increase of electricity consumption
+//viz tabulka 3 (hodnoty zde deleny 365) //todo berry tenhle koment asi taky uplne nesedi?
+#define DAILY_INCREASE_PRODUCE_KWH 4218 //daily increase of electricity consumption
+#define DAILY_INCREASE_PRODUCE_KWH_DYNAMIC (2848000/365) //daily increase of electricity consumption //todo berry neco s tim udelat
 
 //installed power of each type in kW at the beginning of simulation
 #define INIT_INSTALLED_POWER_COAL 9130000

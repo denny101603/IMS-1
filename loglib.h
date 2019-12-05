@@ -1,6 +1,8 @@
-//
-// Created by janbe on 04.12.2019.
-//
+/**
+ * @author Jan Beran (xberan43)
+ * Projekt do predmetu IMS na FIT VUT v Brne (2019/2020)
+ * @date 5.12.2019
+ */
 
 #ifndef IMS_LOGLIB_H
 #define IMS_LOGLIB_H

@@ -1,6 +1,8 @@
-//
-// Created by daniel on 11/29/19.
-//
+/**
+ * @author Daniel Bubenicek (xbuben05)
+ * Projekt do predmetu IMS na FIT VUT v Brne (2019/2020)
+ * @date 5.12.2019
+ */
 
 #include <stdbool.h>
 #include <errno.h>
@@ -74,14 +76,14 @@ bool checkVars(long *vars) {
 void setVarNamesFromConfFile(const long *values) {
     int i = 0;
     MlimitYears = (int) values[i++];
-    MfinalPercentageProduceCoal = (int) values[i++];
-    MfinalPercentageProduceSolar = (int) values[i++];
-    MfinalPercentageProduceWind = (int) values[i++];
-    MfinalPercentageProduceHydro = (int) values[i++];
-    MfinalPercentageProduceNuclear = (int) values[i++];
-    MfinalPercentageProduceBiomass = (int) values[i++];
-    MfinalPercentageProduceGas = (int) values[i++];
-    MfinalPercentageProduceOther = (int) values[i++];
+    MfinalPercentageProduceCoal = (float) values[i++];
+    MfinalPercentageProduceSolar = (float) values[i++];
+    MfinalPercentageProduceWind = (float) values[i++];
+    MfinalPercentageProduceHydro = (float) values[i++];
+    MfinalPercentageProduceNuclear = (float) values[i++];
+    MfinalPercentageProduceBiomass = (float) values[i++];
+    MfinalPercentageProduceGas = (float) values[i++];
+    MfinalPercentageProduceOther = (float) values[i++];
     Mverbose = (int) values[i++];
     MlogFrequency = (int) values[i++];
 }
