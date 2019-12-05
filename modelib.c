@@ -302,7 +302,7 @@ unsigned long MgetNecessaryInstalledPowerKW(enum MsourceTypes type)
             break;
         case nuclear:
             coefficient = MutilizationRatioNuclear;
-            percentage = MactualPercentageProduceCoal;
+            percentage = MactualPercentageProduceNuclear;
             break;
         case solar:
             coefficient = MutilizationRatioSolar;
