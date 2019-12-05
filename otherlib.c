@@ -5,18 +5,17 @@
 #include <stdbool.h>
 #include <errno.h>
 #include "otherlib.h"
-#include <stdlib.h>
 
-char *inputTags[] = {"years:", "coal:", "solar:", "wind:", "hydro:", "nuclear:", "biomass:", "gas:", "other:"}; //names of input tags in config file
+char *inputFlags[] = {"years:", "coal:", "solar:", "wind:", "hydro:", "nuclear:", "biomass:", "gas:", "other:", "verbose:", "frequency:"}; //names of input flags in config file
 
 
 bool checkVars(long *vars);
 
 void parseConfiguration(char *filename)
 {
-    char tag[TAG_MAX_LEN];
+    char flag[FLAG_MAX_LEN];
     int c;
-    long values[NUMBER_OF_INPUT_TAGS];
+    long values[NUMBER_OF_INPUT_FLAGS];
 
     FILE *fd;
     fd = fopen(filename, "r");
@@ -25,9 +24,9 @@ void parseConfiguration(char *filename)
         err = errFileOpen;
         return; //nepovedlo se otevrit sooubor
     }
-    for (int i = 0; i < NUMBER_OF_INPUT_TAGS; i++)
+    for (int i = 0; i < NUMBER_OF_INPUT_FLAGS; i++)
     {
-        for (int j = 0; j < TAG_MAX_LEN; j++)
+        for (int j = 0; j < FLAG_MAX_LEN; j++)
         {
             if((c = fgetc(fd)) == EOF)
             {
@@ -35,13 +34,13 @@ void parseConfiguration(char *filename)
                 err = errFileFormat;
                 return; //spatny format souboru
             }
-            if(c != inputTags[i][j])
+            if(c != inputFlags[i][j])
             {
                 fclose(fd);
                 err = errFileFormat;
                 return; //spatny format souboru
             }
-            if(c == ':') //konec tagu
+            if(c == ':') //konec flagu
             {
                 if((values[i] = parseValue(fd)) == -1)
                 {
@@ -83,6 +82,8 @@ void setVarNamesFromConfFile(const long *values) {
     MfinalPercentageProduceBiomass = (int) values[i++];
     MfinalPercentageProduceGas = (int) values[i++];
     MfinalPercentageProduceOther = (int) values[i++];
+    Mverbose = (int) values[i++];
+    MlogFrequency = (int) values[i++];
 }
 
 
@@ -99,6 +100,8 @@ long parseValue(FILE *fd)
         {
             return -1; //spatny format souboru
         }
+        if(c == '\r')
+            continue;
         if(c == '\n' && i == 0)
         {
             return -1;
@@ -138,10 +141,11 @@ void messageAndExit() {
     exit(err);
 }
 
-long pow10(unsigned int power) {
+long Mpow10(unsigned int power)
+{
     long base = 10;
     long result = 1;
-    for (int i = 0; i < power; i++) {
+    for (unsigned int i = 0; i < power; i++) {
         result *= base;
     }
     return result;

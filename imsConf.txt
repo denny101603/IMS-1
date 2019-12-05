@@ -7,3 +7,5 @@ nuclear:30
 biomass:0
 gas:0
 other:0
+verbose:2
+frequency:1

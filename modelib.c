@@ -9,12 +9,10 @@
 #include "loglib.h"
 
 const int MsourceTypesNumber = 8;
-int Mverbose = 2; //todo denny parsovat verbose a logovaci frekvenci z vstupniho souboru - frekvenci budes asi pouzivat ty, takze si ji uprav podle sveho :)
-Mfrequence MlogFrequence = yearly; //todo upravit
-
 
 double
-MincreaseInstalledPower(enum MsourceTypes type, unsigned long *actualInstalledSourcePowerKw);
+McorrectInstalledPower(enum MsourceTypes type, unsigned long *actualInstalledSourcePowerKw);
+
 
 long MrandomRange(long lower, long upper) {
     static int init = 1;
@@ -67,25 +65,25 @@ double MgetSourceTypeBuildCF(enum MsourceTypes type, unsigned long installedPowe
             ret = 1; //v pomeru k produkci zanedbatelna a nedohledatelna (rozhodně pod 1 %, vzhledem k číslům odhaduji tak kolem 0.001%)
             break;
         case nuclear:
-            ret = MrandomRange(2279 * pow10(3), 2416* pow10(3))+739; //přičítaná hodnota je za výrobu, vzhledem k výrobě je tak malá, že by nešla rozpočítat
+            ret = MrandomRange(2279 * Mpow10(3), 2416 * Mpow10(3)) + 739; //přičítaná hodnota je za výrobu, vzhledem k výrobě je tak malá, že by nešla rozpočítat
             break;
         case solar:
-            ret = MrandomRange(107 * pow10(2), 148 * pow10(2));
+            ret = MrandomRange(107 * Mpow10(2), 148 * Mpow10(2));
             break;
         case gas:
             ret = 1; //viz uhlí
             break;
         case hydro:
-            ret = MrandomRange(1752 * pow10(1), 55188*pow10(1));
+            ret = MrandomRange(1752 * Mpow10(1), 55188 * Mpow10(1));
             break;
         case wind:
-            ret = MrandomRange(1406 * pow10(3), 3514* pow10(3));
+            ret = MrandomRange(1406 * Mpow10(3), 3514 * Mpow10(3));
             break;
         case biomass:
-            ret = MrandomRange(876*pow10(3), 105*pow10(5));
+            ret = MrandomRange(876 * Mpow10(3), 105 * Mpow10(5));
             break;
         case other:
-            ret = MrandomRange(5*pow10(4),1*pow10(5)); //aritmetický průměr ostatních
+            ret = MrandomRange(5 * Mpow10(4), 1 * Mpow10(5)); //aritmetický průměr ostatních
             break;
         default:
             ret = -1;
@@ -165,41 +163,91 @@ void MstartSimulation()
 {
     while (MlimitYears >= Myears)
     {
+        MyearlyProductionGWH = 0;
         MsimulateYear();
         if(MlimitYears != Myears)
         {
             MupdateProductionRatio();
-            MyearCF += McorrectInstalledPower();
-            //todo obnovit elektrarny
+            MyearCF += McorrectInstalledPowerAll();
+            MyearCF += MrenewPowerPlantsAll();
             MfinalCFkg += MyearCF / 1000; //g -> kg
         }
         logYear(Mverbose);
         Myears++;
     }
+    Myears--; //correction because of the while cycle
     logTotal(Mverbose);
 }
 
-unsigned long long McorrectInstalledPower()
+void MsimulateYear()
 {
-    //todo zabit elektrarny s prilis vysokym instalovanym vykonem vuci realne produkci
+    int daysInYear = 365;
+    if(!Myears%4) //leap year
+        daysInYear = 366;
+
+    MyearCF = 0;
+
+    for (int i = 0; i < daysInYear; ++i)
+    {
+        MyearlyProductionGWH += MdailyProductionKWH / Mpow10(6); //kwh -> gwh
+        MsimulateDay();
+        MyearCF += (unsigned long long) MdailyCF; //not important loose of precision
+        MdailyProductionKWH += DAILY_INCREASE_PRODUCE_KWH_CONSERVATIVE;
+        logDay(Mverbose);
+        Mdays++;
+    }
+}
+
+void MsimulateDay()
+{
+    MdailyCF = MgetCFBySourceType(coal, MgetActualDailyProductionBySource(MactualPercentageProduceCoal));
+    MdailyCF += MgetCFBySourceType(nuclear, MgetActualDailyProductionBySource(MactualPercentageProduceNuclear));
+    MdailyCF += MgetCFBySourceType(wind, MgetActualDailyProductionBySource(MactualPercentageProduceWind));
+    MdailyCF += MgetCFBySourceType(hydro, MgetActualDailyProductionBySource(MactualPercentageProduceHydro));
+    MdailyCF += MgetCFBySourceType(biomass, MgetActualDailyProductionBySource(MactualPercentageProduceBiomass));
+    MdailyCF += MgetCFBySourceType(solar, MgetActualDailyProductionBySource(MactualPercentageProduceSolar));
+    MdailyCF += MgetCFBySourceType(gas, MgetActualDailyProductionBySource(MactualPercentageProduceGas));
+    MdailyCF += MgetCFBySourceType(other, MgetActualDailyProductionBySource(MactualPercentageProduceOther));
+}
+
+unsigned long long MrenewPowerPlantsAll() {
     double cf = 0;
-    cf += MincreaseInstalledPower(coal, &MactualInstalledPowerKWCoal);
-    cf += MincreaseInstalledPower(nuclear, &MactualInstalledPowerKWNuclear);
-    cf += MincreaseInstalledPower(wind, &MactualInstalledPowerKWWind);
-    cf += MincreaseInstalledPower(hydro, &MactualInstalledPowerKWHydro);
-    cf += MincreaseInstalledPower(biomass, &MactualInstalledPowerKWBiomass);
-    cf += MincreaseInstalledPower(solar, &MactualInstalledPowerKWSolar);
-    cf += MincreaseInstalledPower(gas, &MactualInstalledPowerKWGas);
-    cf += MincreaseInstalledPower(other, &MactualInstalledPowerKWOther);
+    cf += MgetSourceTypeBuildCF(coal, MactualInstalledPowerKWCoal/AVERAGE_LIFESPAN_COAL);
+    cf += MgetSourceTypeBuildCF(nuclear, MactualInstalledPowerKWNuclear/AVERAGE_LIFESPAN_NUCLEAR);
+    cf += MgetSourceTypeBuildCF(wind, MactualInstalledPowerKWWind/AVERAGE_LIFESPAN_WIND);
+    cf += MgetSourceTypeBuildCF(hydro, MactualInstalledPowerKWHydro/AVERAGE_LIFESPAN_HYDRO);
+    cf += MgetSourceTypeBuildCF(biomass, MactualInstalledPowerKWBiomass/AVERAGE_LIFESPAN_BIOMASS);
+    cf += MgetSourceTypeBuildCF(solar, MactualInstalledPowerKWSolar/AVERAGE_LIFESPAN_SOLAR);
+    cf += MgetSourceTypeBuildCF(gas, MactualInstalledPowerKWGas/AVERAGE_LIFESPAN_GAS);
+    cf += MgetSourceTypeBuildCF(other, MactualInstalledPowerKWOther/AVERAGE_LIFESPAN_OTHER);
+
+    return (unsigned long long) cf;
+
+}
+
+unsigned long long McorrectInstalledPowerAll()
+{
+    double cf = 0;
+    cf += McorrectInstalledPower(coal, &MactualInstalledPowerKWCoal);
+    cf += McorrectInstalledPower(nuclear, &MactualInstalledPowerKWNuclear);
+    cf += McorrectInstalledPower(wind, &MactualInstalledPowerKWWind);
+    cf += McorrectInstalledPower(hydro, &MactualInstalledPowerKWHydro);
+    cf += McorrectInstalledPower(biomass, &MactualInstalledPowerKWBiomass);
+    cf += McorrectInstalledPower(solar, &MactualInstalledPowerKWSolar);
+    cf += McorrectInstalledPower(gas, &MactualInstalledPowerKWGas);
+    cf += McorrectInstalledPower(other, &MactualInstalledPowerKWOther);
 
     return (unsigned long long) cf;
 }
 
-double MincreaseInstalledPower(enum MsourceTypes type, unsigned long *actualInstalledSourcePowerKw)
+double McorrectInstalledPower(enum MsourceTypes type, unsigned long *actualInstalledSourcePowerKw)
 {
     unsigned long necessaryInstalledPower = MgetNecessaryInstalledPowerKW(type);
-    if(necessaryInstalledPower <= actualInstalledSourcePowerKw)
+    if(necessaryInstalledPower <= *actualInstalledSourcePowerKw)
+    {
+        *actualInstalledSourcePowerKw = necessaryInstalledPower; //downgrade
         return 0;
+    }
     *actualInstalledSourcePowerKw += (necessaryInstalledPower - *actualInstalledSourcePowerKw);
     return MgetSourceTypeBuildCF(type, necessaryInstalledPower - *actualInstalledSourcePowerKw);
 }
@@ -232,36 +280,6 @@ void MupdateProductionRatio()
     if(MactualPercentageProduceOther < 0)
         MactualPercentageProduceOther = 0;
 
-}
-
-void MsimulateYear() 
-{
-    int daysInYear = 365;
-    if(!Myears%4) //leap year
-       daysInYear = 366;
-
-    MyearCF = 0;
-
-    for (int i = 0; i < daysInYear; ++i)
-    {
-        MsimulateDay();
-        MyearCF += (unsigned long long) MdailyCF; //not important loose of precision
-        MdailyProductionKWH += DAILY_INCREASE_PRODUCE_KWH_CONSERVATIVE;
-        logDay(Mverbose);
-        Mdays++;
-    }
-}
-
-void MsimulateDay()
-{
-    MdailyCF = MgetCFBySourceType(coal, MgetActualDailyProductionBySource(MactualPercentageProduceCoal));
-    MdailyCF += MgetCFBySourceType(nuclear, MgetActualDailyProductionBySource(MactualPercentageProduceNuclear));
-    MdailyCF += MgetCFBySourceType(wind, MgetActualDailyProductionBySource(MactualPercentageProduceWind));
-    MdailyCF += MgetCFBySourceType(hydro, MgetActualDailyProductionBySource(MactualPercentageProduceHydro));
-    MdailyCF += MgetCFBySourceType(biomass, MgetActualDailyProductionBySource(MactualPercentageProduceBiomass));
-    MdailyCF += MgetCFBySourceType(solar, MgetActualDailyProductionBySource(MactualPercentageProduceSolar));
-    MdailyCF += MgetCFBySourceType(gas, MgetActualDailyProductionBySource(MactualPercentageProduceGas));
-    MdailyCF += MgetCFBySourceType(other, MgetActualDailyProductionBySource(MactualPercentageProduceOther));
 }
 
 double MgetActualDailyProductionBySource(float actualSourcePercentage)
