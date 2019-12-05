@@ -1,0 +1,11 @@
+years:12
+coal:27
+solar:3
+wind:2
+hydro:1
+nuclear:34
+biomass:25
+gas:7
+other:1
+verbose:2
+frequency:1
