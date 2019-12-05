@@ -167,6 +167,7 @@ void MstartSimulation()
     {
         MyearlyProductionGWH = 0;
         MsimulateYear();
+        logYear(Mverbose);
         if(MlimitYears != Myears)
         {
             MupdateProductionRatio();

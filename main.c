@@ -16,7 +16,6 @@ int main(int argc, char **argv)
 
     if(!MinitSimulation(filename))
         messageAndExit();
-
     MstartSimulation();
     return 0;
 }
