@@ -57,7 +57,7 @@ void parseConfiguration(char *filename)
     fclose(fd);
     if(!checkVars(values))
     {
-        err = errFileFormat;
+        err = errSum100;
         return;
     }
     setVarNamesFromConfFile(values);
@@ -135,6 +135,9 @@ void messageAndExit() {
             break;
         case errFileOpen:
             fprintf(stderr, "Config file cannot be opened!\n");
+            break;
+        case errSum100:
+            fprintf(stderr, "Sum of final ratio of sources is not 100 %%! Please check imsConf.txt.\n");
             break;
         default:
             fprintf(stderr, "Unspecified error!\n");
