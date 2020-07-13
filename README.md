@@ -3,4 +3,5 @@ Model pro simulaci budoucího vývoje výroby elektřiny v ČR - umožňuje nast
 
 # autorství
 Daniel Bubeníček - celý program s výjimkou loglib.c, loglib.h
+
 Jan Beran - teorie, provedení experimentů, dokumentace, loglib.c/.h
